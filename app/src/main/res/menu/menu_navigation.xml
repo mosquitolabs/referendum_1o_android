@@ -7,6 +7,11 @@
         android:title="@string/menu_info" />
 
     <item
+        android:id="@+id/navigation_web"
+        android:icon="@drawable/ic_web"
+        android:title="@string/menu_web" />
+
+    <item
         android:id="@+id/navigation_vota"
         android:icon="@drawable/ic_vector_vota"
         android:title="@string/menu_vote" />

@@ -1,6 +1,6 @@
 # Referèndum 1-O
 
-L'1 d'Octubre ja s'acosta i a causa de la censura i la persecució de drets democràtics fonamentals com són la llibertat d'expressió (tancament de pàgines web, requisaments de cartells...) i la llibertat de correspondència (vulnerant així la privacitat), un grup de professionals de les TIC ens hem vist empesos a crear una aplicació per tal de mantenir informada la població i garantir que tothom pugui exercir el seu dret a decidir.
+L'1 d'Octubre ja s'acosta i a causa de la censura i la persecució de drets democràtics fonamentals com són la llibertat d'expressió (tancament de pàgines web, requises de cartells...) i la llibertat de correspondència (vulnerant així la privacitat), un grup de professionals de les TIC ens hem vist empesos a crear una aplicació per tal de mantenir informada la població i garantir que tothom pugui exercir el seu dret a decidir.
 
 Funcionalitats:
 

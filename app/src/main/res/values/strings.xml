@@ -33,12 +33,14 @@
     <string name="image_share_title">Comparteix la imatge</string>
     <string name="title_vote">Punts de votació</string>
     <string name="title_share">Difon i comparteix l\'aplicació</string>
+    <string name="title_web">Web oficial</string>
     <string name="title_twitter">Darreres novetats</string>
     <string name="info_punts_votacio">Actualment restem a l\'espera que s\'oficialitzin els punts de votació. Quan es publiquin t\'ho notificarem.</string>
     <string name="twitter_login_button">Inicia la sessió amb Twitter</string>
     <string name="menu_search">Cerca col·legi electoral</string>
     <string name="menu_share_app">Comparteix l\'aplicació</string>
     <string name="menu_info">Informa\'t</string>
+    <string name="menu_web">Web oficial</string>
     <string name="menu_vote">Participa</string>
     <string name="menu_share_tab">Difon</string>
     <string name="notification_title">Referèndum</string>

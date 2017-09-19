@@ -1,10 +1,13 @@
 package com.referendum.uoctubre.main;
 
+import android.annotation.SuppressLint;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.internal.BottomNavigationItemView;
+import android.support.design.internal.BottomNavigationMenuView;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -25,12 +28,14 @@ import com.referendum.uoctubre.R;
 import com.referendum.uoctubre.fragments.InfoFragment;
 import com.referendum.uoctubre.fragments.ShareFragment;
 import com.referendum.uoctubre.fragments.VoteFragment;
+import com.referendum.uoctubre.fragments.WebFragment;
 
 public class MainActivity extends BaseActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
     public static final String TAB_TWITTER = "twitter";
     public static final String TAB_VOTE = "vote";
     public static final String TAB_SHARE = "share";
+    public static final String TAB_WEB = "web";
     private BottomNavigationView mNavigationView;
     private Fragment mFragment;
     private SearchView searchView;
@@ -39,8 +44,9 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
     private final static int INFORMAT_FRAGMENT = 0;
     private final static int VOTA_FRAGMENT = 1;
     private final static int COMPARTEIX_FRAGMENT = 2;
-    public static final int LOCATION_PERMISSION_ID = 1001;
+    private final static int WEB_FRAGMENT = 3;
 
+    @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,6 +57,13 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         mNavigationView = findViewById(R.id.navigation);
         mNavigationView.setOnNavigationItemSelectedListener(this);
 
+        BottomNavigationMenuView menuView = (BottomNavigationMenuView) mNavigationView.getChildAt(0);
+        for (int i = 0; i < menuView.getChildCount(); i++) {
+            BottomNavigationItemView itemView = (BottomNavigationItemView) menuView.getChildAt(i);
+            itemView.setShiftingMode(false);
+            itemView.setChecked(false);
+        }
+
         if (savedInstanceState == null) {
             showFirstFragment();
         } else {
@@ -60,6 +73,11 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
                     getSupportActionBar().setTitle(R.string.title_twitter);
                     mFragment = getSupportFragmentManager().findFragmentByTag(InfoFragment.TAG);
                     mNavigationView.getMenu().getItem(INFORMAT_FRAGMENT).setChecked(true);
+                    break;
+                case TAB_WEB:
+                    getSupportActionBar().setTitle(R.string.title_web);
+                    mFragment = getSupportFragmentManager().findFragmentByTag(WebFragment.TAG);
+                    mNavigationView.getMenu().getItem(WEB_FRAGMENT).setChecked(true);
                     break;
                 case TAB_VOTE:
                     getSupportActionBar().setTitle(R.string.title_vote);
@@ -76,6 +94,17 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         }
 
         fetchRemoteConfig();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (mFragment != null && mFragment instanceof WebFragment) {
+            if (!((WebFragment)mFragment).onBackPressed()) {
+                super.onBackPressed();
+            }
+        } else {
+            super.onBackPressed();
+        }
     }
 
     private void fetchRemoteConfig() {
@@ -189,6 +218,10 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
             showFragment(ShareFragment.TAG);
             getSupportActionBar().setTitle(R.string.title_share);
             mCurrentScreen = TAB_SHARE;
+        } else if (itemId == R.id.navigation_web) {
+            showFragment(WebFragment.TAG);
+            getSupportActionBar().setTitle(R.string.title_web);
+            mCurrentScreen = TAB_WEB;
         }
         return true;
     }
@@ -210,6 +243,8 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
                 mFragment = InfoFragment.newInstance();
             } else if (tag.equalsIgnoreCase(VoteFragment.TAG)) {
                 mFragment = VoteFragment.newInstance();
+            } else if (tag.equalsIgnoreCase(WebFragment.TAG)) {
+                mFragment = WebFragment.newInstance();
             }
         } else {
             mFragment = f;

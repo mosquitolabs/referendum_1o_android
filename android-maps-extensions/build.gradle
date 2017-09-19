@@ -9,7 +9,7 @@ android {
     buildToolsVersion '26.0.1'
 
     defaultConfig {
-        minSdkVersion 21
+        minSdkVersion 14
     }
     dexOptions {
         preDexLibraries = true
