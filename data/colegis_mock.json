@@ -1,0 +1,29 @@
+[
+  {
+    "municipi":"Tarragona",
+    "local":"Col·legi Pau del Clos",
+    "adresa":"Pl. de la Vila, 1",
+    "cp":43001,
+    "lat":41.114516,
+    "lon":1.252659,
+    "meses":2
+  },
+  {
+    "municipi":"Barcelona",
+    "local":"Col·legi Arc del Triomf",
+    "adresa":"Avinguda Catalana",
+    "cp":12345,
+    "lat":41.391052,
+    "lon":2.180645,
+    "meses":3
+  },
+  {
+    "municipi":"Barcelona",
+    "local":"CEIP Eixample Dret",
+    "adresa":"Carrer Marina 46",
+    "cp":67890,
+    "lat":41.403630,
+    "lon":2.174356,
+    "meses":2
+  }
+]

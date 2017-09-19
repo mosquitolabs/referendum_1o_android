@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="grid_divider_width">1dp</dimen>
+    <dimen name="map_poi_size">26dp</dimen>
+    <dimen name="map_marker_cluster_text_size_big">14sp</dimen>
+    <dimen name="map_marker_cluster_text_size_small">10sp</dimen>
+    <dimen name="map_cluster_padding">72dp</dimen>
+</resources>

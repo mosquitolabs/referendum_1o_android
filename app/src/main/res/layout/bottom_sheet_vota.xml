@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottomsheet"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/default_padding"
+    android:paddingLeft="@dimen/double_padding"
+    android:paddingRight="@dimen/double_padding"
+    android:paddingTop="@dimen/default_padding"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="0dp"
+    app:layout_behavior="@string/bottom_sheet_behavior">
+
+    <TextView
+        android:id="@+id/txtNomLocal"
+        style="@style/Title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/default_padding"
+        android:layout_weight="1"
+        android:textColor="@color/grey_dark"
+        android:textStyle="bold"
+        tools:text="Col·legi Pau del Clos" />
+
+    <TextView
+        android:id="@+id/txtAdresa"
+        style="@style/Body2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="C/ Mendez Núñez s/n" />
+
+    <TextView
+        android:id="@+id/txtLocalitat"
+        style="@style/Body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textColor="@color/grey_dark"
+        tools:text="Tarragona" />
+
+
+</LinearLayout>

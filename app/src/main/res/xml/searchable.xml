@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<searchable xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:hint="@string/search_text"
+    android:label="@string/search_text"
+    app:closeIcon="@drawable/ic_vector_close" />

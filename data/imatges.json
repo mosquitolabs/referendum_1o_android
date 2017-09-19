@@ -1,0 +1,87 @@
+[
+  {
+    "name": "Cartell oficial del referèndum",
+    "url": "https://firebasestorage.googleapis.com/v0/b/orefrendum.appspot.com/o/Imatges%2Ftrens-premsa-final-web.jpg?alt=media&token=e0240005-3645-4f9f-b09b-e67b899cb13f",
+    "order": 1
+  },
+  {
+    "name": "Hola República Groc",
+    "url": "https://firebasestorage.googleapis.com/v0/b/orefrendum.appspot.com/o/Imatges%2Fholasi.png?alt=media&token=97adb223-2fbf-4b0e-8e57-f0d9b95bba64",
+    "order": 1
+  },
+  {
+    "name": "Hola Nou País",
+    "url": "https://firebasestorage.googleapis.com/v0/b/orefrendum.appspot.com/o/Imatges%2Fholanou.png?alt=media&token=ad9e8da9-e2b5-4f73-ba46-15adcb9ae422",
+    "order": 1
+  },
+  {
+    "name": "Hola Europa",
+    "url": "https://firebasestorage.googleapis.com/v0/b/orefrendum.appspot.com/o/Imatges%2Fholaeu.png?alt=media&token=e06c2b0f-e445-40c3-b52d-82a0a0217241",
+    "order": 1
+  },
+  {
+    "name": "Hola República Vermell",
+    "url": "https://firebasestorage.googleapis.com/v0/b/orefrendum.appspot.com/o/Imatges%2Fholarep.png?alt=media&token=91a5cc40-4fb0-4b99-bae0-f68226331dc2",
+    "order": 1
+  },
+  {
+    "name": "Sanitat Inclusiva",
+    "url": "https://firebasestorage.googleapis.com/v0/b/orefrendum.appspot.com/o/Imatges%2Fsani1.png?alt=media&token=c7bcc98b-9ce5-4387-bb38-5f51972205e7",
+    "order": 1
+  },
+  {
+    "name": "Sanitat de Qualitat",
+    "url": "https://firebasestorage.googleapis.com/v0/b/orefrendum.appspot.com/o/Imatges%2Fsani2.png?alt=media&token=56d63d35-ac5f-40be-ab09-0684633cd92b",
+    "order": 1
+  },
+  {
+    "name": "Sense discriminació",
+    "url": "https://firebasestorage.googleapis.com/v0/b/orefrendum.appspot.com/o/Imatges%2Fmigra1.png?alt=media&token=554cf9f1-c819-4295-a8c9-844dd1ce3e85",
+    "order": 1
+  },
+  {
+    "name": "Sense discriminació (2)",
+    "url": "https://firebasestorage.googleapis.com/v0/b/orefrendum.appspot.com/o/Imatges%2Fmigr2.png?alt=media&token=f08a69d9-4bc1-42a2-a1fc-4a99fa2065c5",
+    "order": 1
+  },
+  {
+    "name": "Dones pel Sí",
+    "url": "https://firebasestorage.googleapis.com/v0/b/orefrendum.appspot.com/o/Imatges%2Fdones1.png?alt=media&token=4f61899c-382c-4ae4-bc0c-e66bec8ed960",
+    "order": 1
+  },
+  {
+    "name": "Dones pel Sí (2)",
+    "url": "https://firebasestorage.googleapis.com/v0/b/orefrendum.appspot.com/o/Imatges%2Fdones2.png?alt=media&token=9c583b04-aada-46fe-9268-e584d192ebf5",
+    "order": 1
+  },
+  {
+    "name": "Campanya \"No votis\"",
+    "url": "https://firebasestorage.googleapis.com/v0/b/orefrendum.appspot.com/o/Imatges%2Frefff.jpg?alt=media&token=bf5a7df1-c5d2-4975-aaf9-c09efade6e5f",
+    "order": 2
+  },
+  {
+    "name": "Tinc un vot i no em farà por usar-lo",
+    "url": "https://pbs.twimg.com/media/DJ3fkxJXoAInnzb.jpg",
+    "order": 3
+  },
+  {
+    "name": "Hola república",
+    "url": "https://ancvallesoccidental.files.wordpress.com/2017/09/captura-de-pantalla-2017-09-13-a-les-2-03-39.png",
+    "order": 4
+  },
+  {
+    "name": "Pregunta",
+    "url": "http://statics.ccma.cat/multimedia/jpg/2/0/1497023325802.jpg",
+    "order": 5
+  },
+  {
+    "name": "Butlleta",
+    "url": "https://imatges.vilaweb.cat/nacional/wp-content/uploads/2017/09/Captura-de-pantalla-2017-09-07-a-les-9.14.50-07091808.png",
+    "order": 6
+  },
+  {
+    "name": "Campanya \"Sí, viure vol dir prendre partit\"",
+    "url": "http://prenpartit.cat/wp-content/uploads/2017/06/estructura-SI-vol-dir-VERTICAL-724x1024.jpg",
+    "order": 7
+  }
+]
