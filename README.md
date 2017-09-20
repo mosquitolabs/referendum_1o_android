@@ -26,7 +26,16 @@ Per a compilar l'aplicació, us caldrà el següent:
   * `hashtags.json`
   * `imatges.json`
   * `colegis.json` (i `colegis_mock.json` per a compilacions de debug)
-
+* Canviar Rules a Firebase Storage:
+    ```
+    service firebase.storage {
+      match /b/{bucket}/o {
+        match /{allPaths=**} {
+          allow read, write;
+        }
+      }
+    }
+    ```
 Al directori `data` hi trobareu exemples del format de cadascun dels fitxers.
 
 ## Llicència
