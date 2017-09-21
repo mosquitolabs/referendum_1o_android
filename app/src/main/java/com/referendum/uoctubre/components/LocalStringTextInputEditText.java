@@ -2,26 +2,26 @@ package com.referendum.uoctubre.components;
 
 import android.content.Context;
 import android.content.res.TypedArray;
-import android.support.v7.widget.AppCompatButton;
+import android.support.design.widget.TextInputEditText;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 
 import com.referendum.uoctubre.R;
 import com.referendum.uoctubre.utils.StringsManager;
 
-public class LocalStringButton extends AppCompatButton {
+public class LocalStringTextInputEditText extends TextInputEditText {
 
-    public LocalStringButton(Context context) {
+    public LocalStringTextInputEditText(Context context) {
         super(context);
         init(null, context);
     }
 
-    public LocalStringButton(Context context, AttributeSet attrs) {
+    public LocalStringTextInputEditText(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(attrs, context);
     }
 
-    public LocalStringButton(Context context, AttributeSet attrs, int defStyleAttr) {
+    public LocalStringTextInputEditText(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(attrs, context);
     }
@@ -29,7 +29,9 @@ public class LocalStringButton extends AppCompatButton {
     public void init(AttributeSet attrs, final Context context) {
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.StringAttributes);
         final String stringId = a.getString(R.styleable.StringAttributes_string_id);
+        final String hintStringId = a.getString(R.styleable.StringAttributes_hint_string_id);
         setString(stringId);
+        setHintString(hintStringId);
         a.recycle();
     }
 
@@ -42,6 +44,18 @@ public class LocalStringButton extends AppCompatButton {
             setText(stringId);
         } else {
             setText(StringsManager.getString(stringId));
+        }
+    }
+
+    private void setHintString(String hintStringId) {
+        if (TextUtils.isEmpty(hintStringId)) {
+            return;
+        }
+
+        if (this.isInEditMode()) {
+            setHint(hintStringId);
+        } else {
+            setHint(StringsManager.getString(hintStringId));
         }
     }
 

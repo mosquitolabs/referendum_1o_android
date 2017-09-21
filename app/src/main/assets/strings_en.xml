@@ -12,7 +12,7 @@
     <!-- Main screen -->
     <string name="title_twitter">Latest news</string>
     <string name="title_web">Official site</string>
-    <string name="title_vote">Polling stations</string>
+    <string name="title_vote">Polling station</string>
     <string name="title_share">Spread and share the app</string>
     <string name="change_language_title">Change app language</string>
 
@@ -21,11 +21,25 @@
     <string name="twitter_remove_hashtag">Remove hashtag</string>
 
     <!-- Vote screen -->
-    <string name="info_punts_votacio">We are currently awaiting the official list of polling stations. We will let you know once they are published.</string>
+    <string name="form_info">Enter your data to search for your assigned polling station.</string>
+    <string name="form_nif">NIF (ID number)</string>
+    <string name="form_date_of_birth">Date of birth</string>
+    <string name="form_day">Day</string>
+    <string name="form_month">Month</string>
+    <string name="form_year">Year</string>
+    <string name="form_zip_code">Zip code</string>
+    <string name="form_search">Search</string>
     <string name="enable_gps_title">Enable GPS</string>
     <string name="enable_gps_message">In order to find your polling station, we need to know your location.</string>
-    <string name="search_text">Enter zip code…</string>
-    <string name="no_college_found">No polling stations were found in this zip code</string>
+    <string name="no_college_found">No polling station was found with the provided data</string>
+    <string name="form_error_enter_all_fields">All fields are mandatory to be able to run a search</string>
+    <string name="form_error_day">Day must be between 1 and 31</string>
+    <string name="form_error_month">Month must be between 1 and 12</string>
+    <string name="form_error_year">Year must be 4 digits</string>
+    <string name="form_error_nif">NIF (ID number) appears to be invalid</string>
+    <string name="data_districte">District: %s</string>
+    <string name="data_seccio">Section: %s</string>
+    <string name="data_mesa">Station: %s</string>
 
     <!-- Share screen -->
     <string name="image_share_title">Share image</string>
@@ -43,7 +57,6 @@
     <string name="menu_web">Official site</string>
     <string name="menu_vote">Get involved</string>
     <string name="menu_share_tab">Share</string>
-    <string name="menu_search">Search polling station</string>
     <string name="menu_share_app">Share app</string>
     <string name="menu_language">Change app language</string>
     <string name="menu_share">Share</string>

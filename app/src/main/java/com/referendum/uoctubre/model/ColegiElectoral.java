@@ -1,39 +1,20 @@
 package com.referendum.uoctubre.model;
 
-import com.google.gson.annotations.SerializedName;
-
 import java.io.Serializable;
 
 public class ColegiElectoral implements Serializable {
 
-    @SerializedName("municipi")
     private String municipi;
-    @SerializedName("local")
     private String local;
-    @SerializedName("adresa")
     private String adresa;
-    @SerializedName("cp")
+    private String districte;
+    private String seccio;
+    private String mesa;
+
+    //TODO TO BE REMOVED
     private int cp;
-    @SerializedName("lat")
     private double lat;
-    @SerializedName("lon")
     private double lon;
-    @SerializedName("meses")
-    private int meses;
-
-    public ColegiElectoral(String municipi, String local, String adresa, int cp, double lat, double lon, int meses) {
-        this.municipi = municipi;
-        this.local = local;
-        this.adresa = adresa;
-        this.cp = cp;
-        this.lat = lat;
-        this.lon = lon;
-        this.meses = meses;
-    }
-
-    public ColegiElectoral() {
-
-    }
 
     public String getMunicipi() {
         return municipi;
@@ -59,6 +40,30 @@ public class ColegiElectoral implements Serializable {
         this.adresa = adresa;
     }
 
+    public String getDistricte() {
+        return districte;
+    }
+
+    public void setDistricte(String districte) {
+        this.districte = districte;
+    }
+
+    public String getSeccio() {
+        return seccio;
+    }
+
+    public void setSeccio(String seccio) {
+        this.seccio = seccio;
+    }
+
+    public String getMesa() {
+        return mesa;
+    }
+
+    public void setMesa(String mesa) {
+        this.mesa = mesa;
+    }
+
     public int getCp() {
         return cp;
     }
@@ -81,13 +86,5 @@ public class ColegiElectoral implements Serializable {
 
     public void setLon(double lon) {
         this.lon = lon;
-    }
-
-    public int getMeses() {
-        return meses;
-    }
-
-    public void setMeses(int meses) {
-        this.meses = meses;
     }
 }

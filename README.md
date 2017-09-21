@@ -21,12 +21,11 @@ Aquesta aplicació és de codi obert per tal que tothom pugui replicar-la.
 
 Per a compilar l'aplicació, us caldrà el següent:
 * Crear un compte de Firebase i copiar-ne el fitxer `google-services.json`.
-* Canviar l'API key de Google Maps a l'`AndroidManifest.xml`.
+* Canviar l'API key de Google Maps i Fabric a l'`AndroidManifest.xml`.
 * Crear una aplicació de Twitter i copiar-ne les claus a `Constants.java`.
 * Afegir els següents fitxers a Firebase Storage:
   * `hashtags.json`
   * `imatges.json`
-  * `colegis.json` (i `colegis_mock.json` per a compilacions de debug)
 * Canviar les regles a Firebase Storage:
     ```
     service firebase.storage {

@@ -12,4 +12,5 @@ public class Constants {
 
     public static final String FIREBASE_CONFIG_SHARE_APP_MESSAGEREQUIRED = "share_app_message";
     public static final String FIREBASE_CONFIG_WEB_URL = "web_url";
+    public static final String FIREBASE_CONFIG_API_URL = "api_url";
 }

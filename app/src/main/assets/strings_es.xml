@@ -6,13 +6,13 @@
     <string name="button_options">Opciones</string>
 
     <!-- Common errors -->
-    <string name="load_error">Se ha producido un error al cargar. Revisa la conexión e inténtalo de nuevo.</string>
+    <string name="load_error">No se ha podido cargar. Revisa la conexión e inténtalo de nuevo.</string>
     <string name="retry_button">Reintentar</string>
 
     <!-- Main screen -->
     <string name="title_twitter">Últimas novedades</string>
     <string name="title_web">Web oficial</string>
-    <string name="title_vote">Puntos de votación</string>
+    <string name="title_vote">Punto de votación</string>
     <string name="title_share">Difundir y compartir la aplicación</string>
     <string name="change_language_title">Cambiar idioma de la aplicación</string>
 
@@ -21,11 +21,25 @@
     <string name="twitter_remove_hashtag">Borrar el hashtag</string>
 
     <!-- Vote screen -->
-    <string name="info_punts_votacio">Actualmente estamos a la espera de que se oficialicen los puntos de votación. Cuando se publiquen te lo notificaremos.</string>
+    <string name="form_info">Introduce tus datos para buscar tu punto de votación.</string>
+    <string name="form_nif">NIF</string>
+    <string name="form_date_of_birth">Fecha de nacimiento</string>
+    <string name="form_day">Día</string>
+    <string name="form_month">Mes</string>
+    <string name="form_year">Año</string>
+    <string name="form_zip_code">Código postal</string>
+    <string name="form_search">Buscar</string>
     <string name="enable_gps_title">Activar el GPS</string>
     <string name="enable_gps_message">Con el fin de encontrar tu punto de votación, necesitamos saber tu posición.</string>
-    <string name="search_text">Introduce el código postal…</string>
-    <string name="no_college_found">No se ha encontrado ningún colegio electoral vinculado a este código postal</string>
+    <string name="no_college_found">No se ha encontrado ningún punto de votación vinculado a la información introducida</string>
+    <string name="form_error_enter_all_fields">Debes introducir todos los campos para poder realizar la búsqueda</string>
+    <string name="form_error_day">El día debe estar entre 1 y 31</string>
+    <string name="form_error_month">El mes debe estar entre 1 y 12</string>
+    <string name="form_error_year">El año debe tener 4 dígitos</string>
+    <string name="form_error_nif">El NIF no parece válido</string>
+    <string name="data_districte">Distrito: %s</string>
+    <string name="data_seccio">Sección: %s</string>
+    <string name="data_mesa">Mesa: %s</string>
 
     <!-- Share screen -->
     <string name="image_share_title">Compartir la imagen</string>
@@ -43,7 +57,6 @@
     <string name="menu_web">Web oficial</string>
     <string name="menu_vote">Participa</string>
     <string name="menu_share_tab">Difunde</string>
-    <string name="menu_search">Buscar colegio electoral</string>
     <string name="menu_share_app">Compartir la aplicación</string>
     <string name="menu_language">Cambiar idioma de la aplicación</string>
     <string name="menu_share">Compartir</string>

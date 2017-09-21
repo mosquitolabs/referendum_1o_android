@@ -1,8 +1,6 @@
 package com.referendum.uoctubre.main;
 
 import android.annotation.SuppressLint;
-import android.app.SearchManager;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,15 +9,12 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.SearchView;
-import android.text.InputType;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.widget.EditText;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -51,6 +46,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         getWindow().setBackgroundDrawableResource(R.color.white);
         setStatusBarColor(R.color.colorPrimaryDark);
@@ -114,6 +110,10 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
             if (!((WebFragment) mFragment).onBackPressed()) {
                 super.onBackPressed();
             }
+        } else if (mFragment != null && mFragment instanceof VoteFragment) {
+            if (!((VoteFragment) mFragment).onBackPressed()) {
+                super.onBackPressed();
+            }
         } else {
             super.onBackPressed();
         }
@@ -147,9 +147,6 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         for (int i = 0; i < menu.size(); i++) {
             MenuItem menuItem = menu.getItem(i);
             switch (menuItem.getItemId()) {
-                case R.id.action_search:
-                    menuItem.setTitle(StringsManager.getString("menu_search"));
-                    break;
                 case R.id.action_share:
                     menuItem.setTitle(StringsManager.getString("menu_share_app"));
                     break;
@@ -160,57 +157,15 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         }
 
         if (mFragment instanceof VoteFragment) {
-            menu.findItem(R.id.action_search).setVisible(true);
             menu.findItem(R.id.action_share).setVisible(false);
-            menu.findItem(R.id.action_language).setVisible(false);
-
-            final MenuItem searchItem = menu.findItem(R.id.action_search);
-
-            SearchManager searchManager = (SearchManager) MainActivity.this.getSystemService(Context.SEARCH_SERVICE);
-
-            if (searchItem != null) {
-                searchView = (SearchView) searchItem.getActionView();
-                searchView.setQueryHint(StringsManager.getString("search_text"));
-                searchView.setInputType(InputType.TYPE_CLASS_NUMBER);
-
-                final EditText searchEditText = searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text);
-                searchEditText.setHintTextColor(ContextCompat.getColor(this, R.color.white_transparent));
-                searchView.setIconified(true);
-                searchView.setMaxWidth(Integer.MAX_VALUE);
-                searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-                    @Override
-                    public boolean onQueryTextSubmit(String query) {
-                        if (mFragment instanceof VoteFragment) {
-                            int codiPostal;
-                            try {
-                                codiPostal = Integer.valueOf(query);
-                            } catch (NumberFormatException e) {
-                                codiPostal = 0;
-                            }
-                            ((VoteFragment) mFragment).searchStation(codiPostal);
-                            searchView.setQuery("", false);
-                            searchView.clearFocus();
-                            searchView.setIconified(true);
-                        }
-                        return true;
-                    }
-
-                    @Override
-                    public boolean onQueryTextChange(String newText) {
-                        return false;
-                    }
-                });
-            }
+            menu.findItem(R.id.action_language).setVisible(true);
         } else if (mFragment instanceof ShareFragment) {
-            menu.findItem(R.id.action_search).setVisible(false);
             menu.findItem(R.id.action_share).setVisible(true);
             menu.findItem(R.id.action_language).setVisible(false);
         } else if (mFragment instanceof WebFragment) {
-            menu.findItem(R.id.action_search).setVisible(false);
             menu.findItem(R.id.action_share).setVisible(false);
             menu.findItem(R.id.action_language).setVisible(false);
         } else {
-            menu.findItem(R.id.action_search).setVisible(false);
             menu.findItem(R.id.action_share).setVisible(false);
             menu.findItem(R.id.action_language).setVisible(true);
         }
@@ -235,7 +190,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle(StringsManager.getString("change_language_title"));
 
-                String[] languages = new String[]{"Català", "Aranés (pròplèuments)", "Castellano", "English"};
+                String[] languages = new String[]{"Català", "Aranés", "Castellano", "English"};
 
                 builder.setItems(languages, new DialogInterface.OnClickListener() {
                     @Override

@@ -1,51 +1,64 @@
 <resources>
 
     <!-- Generic strings -->
-    <string name="button_ok">D'acord</string>
-    <string name="button_cancel">Cancel·la</string>
+    <string name="button_ok">D'acòrd</string>
+    <string name="button_cancel">Anullar</string>
     <string name="button_options">Opcions</string>
 
     <!-- Common errors -->
-    <string name="load_error">No s'ha pogut carregar. Revisa la connexió a Internet i torna-ho a provar.</string>
-    <string name="retry_button">Torna-ho a provar</string>
+    <string name="load_error">Non s'a pogut carregar. Verifica era connexion a Internet e torna a sajar-ac.</string>
+    <string name="retry_button">Torna a sajar-ac</string>
 
     <!-- Main screen -->
-    <string name="title_twitter">Darreres novetats</string>
-    <string name="title_web">Web oficial</string>
-    <string name="title_vote">Punts de votació</string>
-    <string name="title_share">Difon i comparteix l'aplicació</string>
-    <string name="change_language_title">Canvia l'idioma de l'aplicació</string>
+    <string name="title_twitter">Darrères nauères</string>
+    <string name="title_web">Plana oficiau</string>
+    <string name="title_vote">Punts de votacion</string>
+    <string name="title_share">Difon e partaja era aplicacion</string>
+    <string name="change_language_title">Càmbia era lengua dera aplicacion</string>
 
     <!-- Info screen -->
-    <string name="twitter_add_hashtag">Afegeix un hashtag</string>
-    <string name="twitter_remove_hashtag">Esborra el hashtag</string>
+    <string name="twitter_add_hashtag">Híger un hashtag</string>
+    <string name="twitter_remove_hashtag">Esfaça eth hashtag</string>
 
     <!-- Vote screen -->
-    <string name="info_punts_votacio">Actualment restem a l'espera que s'oficialitzin els punts de votació. Quan es publiquin t'ho notificarem.</string>
-    <string name="enable_gps_title">Activa el GPS</string>
-    <string name="enable_gps_message">Per tal de trobar el teu punt de votació, necessitem saber la teva posició.</string>
-    <string name="search_text">Introdueix el codi postal…</string>
-    <string name="no_college_found">No s'ha trobat cap col·legi electoral vinculat a aquest codi postal</string>
+    <string name="form_info">Aumplís es tues donades entà cercar eth tòn punt de votacion.</string>
+    <string name="form_nif">NIF</string>
+    <string name="form_date_of_birth">Data de neishença</string>
+    <string name="form_day">Dia</string>
+    <string name="form_month">Mes</string>
+    <string name="form_year">An</string>
+    <string name="form_zip_code">Còdi postau</string>
+    <string name="form_search">Cerca</string>
+    <string name="enable_gps_title">Activa eth GPS</string>
+    <string name="enable_gps_message">Entà trapar eth tòn punt de votacion, qu'auem de besonh era tua posicion.</string>
+    <string name="no_college_found">Non s'a trapat cap de punt de votacion vinculat ara informacion introdusida</string>
+    <string name="form_error_enter_all_fields">Cau aumplir toti es camps entà poder realizar era recèrca</string>
+    <string name="form_error_day">Eth dia a d'èster entre 1 e 31</string>
+    <string name="form_error_month">Eth mes a d'èster entre 1 e 12</string>
+    <string name="form_error_year">Er an a d'auer 4 digits</string>
+    <string name="form_error_nif">Eth NIF non semble valid</string>
+    <string name="data_districte">Districte: %s</string>
+    <string name="data_seccio">Seccion: %s</string>
+    <string name="data_mesa">Mèsa: %s</string>
 
     <!-- Share screen -->
-    <string name="image_share_title">Comparteix la imatge</string>
-    <string name="image_share_error">No s'ha pogut compartir la imatge. Torna-ho a provar.</string>
-    <string name="share_subject">1-O Referèndum</string>
-    <string name="share_select">Comparteix amb…</string>
+    <string name="image_share_title">Partaja era imatge</string>
+    <string name="image_share_error">Non s'a pogut partajar era imatge. Torna a sajar-ac.</string>
+    <string name="share_subject">1-O Referendum</string>
+    <string name="share_select">Partaja damb…</string>
 
     <!-- Notifications -->
-    <string name="notification_title">Referèndum</string>
-    <string name="notification_channel_name">Referèndum</string>
-    <string name="notification_channel_description">Notificacions de novetats en el marc del referèndum</string>
+    <string name="notification_title">Referendum</string>
+    <string name="notification_channel_name">Referendum</string>
+    <string name="notification_channel_description">Notificacions de nauères en encastre deth referendum</string>
 
     <!-- Menus -->
-    <string name="menu_info">Informa't</string>
-    <string name="menu_web">Web oficial</string>
+    <string name="menu_info">Informa-te</string>
+    <string name="menu_web">Plana oficiau</string>
     <string name="menu_vote">Participa</string>
     <string name="menu_share_tab">Difon</string>
-    <string name="menu_search">Cerca col·legi electoral</string>
-    <string name="menu_share_app">Comparteix l'aplicació</string>
-    <string name="menu_language">Canvia l'idioma de l'aplicació</string>
-    <string name="menu_share">Comparteix</string>
+    <string name="menu_share_app">Partaja era aplicacion</string>
+    <string name="menu_language">Càmbia er idioma dera aplicacion</string>
+    <string name="menu_share">Partaja</string>
 
 </resources>
