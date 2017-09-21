@@ -30,7 +30,7 @@
 
         <com.referendum.uoctubre.components.LocalStringImageView
             android:id="@+id/delete_button"
-            content_description_string_id="twitter_remove_hashtag"
+            app:content_description_string_id="twitter_remove_hashtag"
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:layout_marginBottom="4dp"
