@@ -10,7 +10,6 @@ public class Constants {
 
     public static final int MAX_FIREBASE_DOWNLOAD_SIZE = 1024 * 1024; //1MB
 
-    public static final String FIREBASE_CONFIG_TWITTER_LOGIN_REQUIRED = "twitter_login_required";
     public static final String FIREBASE_CONFIG_SHARE_APP_MESSAGEREQUIRED = "share_app_message";
     public static final String FIREBASE_CONFIG_WEB_URL = "web_url";
 }

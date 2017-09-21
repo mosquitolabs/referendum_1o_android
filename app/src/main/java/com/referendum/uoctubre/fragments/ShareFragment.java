@@ -75,42 +75,46 @@ public class ShareFragment extends BaseFragment {
         storageRef.getBytes(Constants.MAX_FIREBASE_DOWNLOAD_SIZE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
             @Override
             public void onSuccess(byte[] bytes) {
-                Gson gson = new Gson();
-                Type listType = new TypeToken<List<Image>>() {
-                }.getType();
-                List<Image> images = gson.fromJson(new String(bytes), listType);
+                if (isFragmentSafe()) {
+                    Gson gson = new Gson();
+                    Type listType = new TypeToken<List<Image>>() {
+                    }.getType();
+                    List<Image> images = gson.fromJson(new String(bytes), listType);
 
-                Collections.sort(images, new Comparator<Image>() {
-                    @Override
-                    public int compare(Image o1, Image o2) {
-                        return o1.getOrder() - o2.getOrder();
-                    }
-                });
+                    Collections.sort(images, new Comparator<Image>() {
+                        @Override
+                        public int compare(Image o1, Image o2) {
+                            return o1.getOrder() - o2.getOrder();
+                        }
+                    });
 
-                loadingLayout.setVisibility(View.GONE);
-                errorLayout.setVisibility(View.GONE);
-                imageRecyclerView.setVisibility(View.VISIBLE);
+                    loadingLayout.setVisibility(View.GONE);
+                    errorLayout.setVisibility(View.GONE);
+                    imageRecyclerView.setVisibility(View.VISIBLE);
 
-                imageRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
-                imageRecyclerView.addItemDecoration(new GridDividerItemDecoration(
-                        getResources().getDimensionPixelSize(R.dimen.grid_divider_width), 2));
-                imageRecyclerView.setAdapter(new ImageAdapter(images, new ImageAdapter.OnImageClickedListener() {
-                    @Override
-                    public void onImageClicked(Image image, View view) {
-                        Intent intent = new Intent(getContext(), ImageActivity.class);
-                        intent.putExtra(Constants.INTENT_TAG_IMAGE, image);
-                        ActivityOptionsCompat options = ActivityOptionsCompat.
-                                makeSceneTransitionAnimation(getActivity(), view, "image");
-                        startActivity(intent, options.toBundle());
-                    }
-                }));
+                    imageRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
+                    imageRecyclerView.addItemDecoration(new GridDividerItemDecoration(
+                            getResources().getDimensionPixelSize(R.dimen.grid_divider_width), 2));
+                    imageRecyclerView.setAdapter(new ImageAdapter(images, new ImageAdapter.OnImageClickedListener() {
+                        @Override
+                        public void onImageClicked(Image image, View view) {
+                            Intent intent = new Intent(getContext(), ImageActivity.class);
+                            intent.putExtra(Constants.INTENT_TAG_IMAGE, image);
+                            ActivityOptionsCompat options = ActivityOptionsCompat.
+                                    makeSceneTransitionAnimation(getActivity(), view, "image");
+                            startActivity(intent, options.toBundle());
+                        }
+                    }));
+                }
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception exception) {
-                loadingLayout.setVisibility(View.GONE);
-                errorLayout.setVisibility(View.VISIBLE);
-                imageRecyclerView.setVisibility(View.GONE);
+                if (isFragmentSafe()) {
+                    loadingLayout.setVisibility(View.GONE);
+                    errorLayout.setVisibility(View.VISIBLE);
+                    imageRecyclerView.setVisibility(View.GONE);
+                }
             }
         });
     }

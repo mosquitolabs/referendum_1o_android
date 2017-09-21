@@ -7,17 +7,19 @@
         android:id="@+id/webview"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
     <FrameLayout
         android:id="@+id/loading_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white_more_transparent">
+
         <ProgressBar
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:indeterminateTint="@color/colorPrimary"
             android:foregroundTintMode="src_in"
-            android:layout_height="wrap_content" />
+            android:indeterminateTint="@color/colorPrimary" />
 
     </FrameLayout>
 
@@ -29,18 +31,18 @@
         android:orientation="vertical"
         android:visibility="gone">
 
-        <TextView
+        <com.referendum.uoctubre.components.LocalStringTextView
+            string_id="load_error"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:gravity="center"
-            android:text="@string/load_error"
             android:textSize="16sp" />
 
-        <Button
+        <com.referendum.uoctubre.components.LocalStringButton
             android:id="@+id/error_retry_button"
+            string_id="retry_button"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/retry_button" />
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </FrameLayout>

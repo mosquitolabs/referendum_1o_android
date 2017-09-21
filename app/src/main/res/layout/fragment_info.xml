@@ -1,31 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/twitter_login_layout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/double_padding"
-            android:gravity="center"
-            android:text="@string/twitter_login_explanation"
-            android:textSize="18sp" />
-
-        <com.twitter.sdk.android.core.identity.TwitterLoginButton
-            android:id="@+id/twitter_login_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/twitter_login_button" />
-    </LinearLayout>
+    <!-- TODO - Temporary fix - If we don't leave this hidden button here, app takes a lot to initialize -->
+    <com.twitter.sdk.android.core.identity.TwitterLoginButton
+        android:id="@+id/twitter_login_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
 
     <FrameLayout
         android:id="@+id/twitter_loading_layout"
@@ -47,19 +31,19 @@
         android:orientation="vertical"
         android:visibility="gone">
 
-        <TextView
+        <com.referendum.uoctubre.components.LocalStringTextView
+            string_id="load_error"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:gravity="center"
-            android:text="@string/load_error"
             android:textSize="16sp" />
 
-        <Button
+        <com.referendum.uoctubre.components.LocalStringButton
             android:id="@+id/error_retry_button"
+            string_id="retry_button"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/retry_button" />
+            android:layout_height="wrap_content" />
     </LinearLayout>
 
     <LinearLayout
@@ -83,16 +67,17 @@
                 android:paddingEnd="8dp"
                 android:paddingStart="8dp" />
 
-            <ImageView
+            <com.referendum.uoctubre.components.LocalStringImageView
                 android:id="@+id/twitter_add_hashtag"
+                content_description_string_id="twitter_add_hashtag"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 android:background="?selectableItemBackgroundBorderless"
-                android:contentDescription="@string/twitter_add_hashtag"
+                android:contentDescription="@null"
                 android:padding="12dp"
-                app:srcCompat="@drawable/ic_vector_add"
-                android:tint="@color/black" />
+                android:tint="@color/black"
+                app:srcCompat="@drawable/ic_vector_add" />
         </LinearLayout>
 
         <android.support.v4.widget.SwipeRefreshLayout

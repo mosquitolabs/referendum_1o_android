@@ -1,0 +1,51 @@
+<resources>
+
+    <!-- Generic strings -->
+    <string name="button_ok">OK</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_options">Options</string>
+
+    <!-- Common errors -->
+    <string name="load_error">Could not load. Please check your Internet connection and try again.</string>
+    <string name="retry_button">Retry</string>
+
+    <!-- Main screen -->
+    <string name="title_twitter">Latest news</string>
+    <string name="title_web">Official site</string>
+    <string name="title_vote">Polling stations</string>
+    <string name="title_share">Spread and share the app</string>
+    <string name="change_language_title">Change app language</string>
+
+    <!-- Info screen -->
+    <string name="twitter_add_hashtag">Add a hashtag</string>
+    <string name="twitter_remove_hashtag">Remove hashtag</string>
+
+    <!-- Vote screen -->
+    <string name="info_punts_votacio">We are currently awaiting the official list of polling stations. We will let you know once they are published.</string>
+    <string name="enable_gps_title">Enable GPS</string>
+    <string name="enable_gps_message">In order to find your polling station, we need to know your location.</string>
+    <string name="search_text">Enter zip code…</string>
+    <string name="no_college_found">No polling stations were found in this zip code</string>
+
+    <!-- Share screen -->
+    <string name="image_share_title">Share image</string>
+    <string name="image_share_error">Unable to share image. Please try again.</string>
+    <string name="share_subject">1-O Referendum</string>
+    <string name="share_select">Share via…</string>
+
+    <!-- Notifications -->
+    <string name="notification_title">Referendum</string>
+    <string name="notification_channel_name">Referendum</string>
+    <string name="notification_channel_description">Notifications of news regarding the referendum</string>
+
+    <!-- Menus -->
+    <string name="menu_info">Find out</string>
+    <string name="menu_web">Official site</string>
+    <string name="menu_vote">Get involved</string>
+    <string name="menu_share_tab">Share</string>
+    <string name="menu_search">Search polling station</string>
+    <string name="menu_share_app">Share app</string>
+    <string name="menu_language">Change app language</string>
+    <string name="menu_share">Share</string>
+
+</resources>

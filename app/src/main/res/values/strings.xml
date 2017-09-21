@@ -1,54 +1,6 @@
-<!--
-  Copyright 2013 The Android Open Source Project
-
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-
-      http://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
--->
-
 <resources>
 
+    <!-- This should be the only string not to use StringsManager, all other strings go to assets/string_<lang>.xml -->
     <string name="app_name">Referèndum</string>
-    <string name="search_text">Introdueix el codi postal…</string>
-
-    <string name="button_ok">D\'acord</string>
-    <string name="button_cancel">Cancel·la</string>
-    <string name="load_error">No s\'ha pogut carregar. Revisa la connexió a Internet i torna-ho a provar.</string>
-    <string name="retry_button">Torna-ho a provar</string>
- 
-    <string name="twitter_login_explanation">Per accedir als darrers tuits, cal que iniciïs la sessió.</string>
-    <string name="twitter_login_error">S\'ha produït un error en iniciar la sessió. Torna-ho a provar.</string>
-    <string name="twitter_add_hashtag">Afegeix un hashtag</string>
-    <string name="twitter_remove_hashtag">Esborra el hashtag</string>
-    <string name="menu_share">Comparteix</string>
-    <string name="image_share_error">No s\'ha pogut compartir la imatge. Torna-ho a provar.</string>
-    <string name="image_share_title">Comparteix la imatge</string>
-    <string name="title_vote">Punts de votació</string>
-    <string name="title_share">Difon i comparteix l\'aplicació</string>
-    <string name="title_web">Web oficial</string>
-    <string name="title_twitter">Darreres novetats</string>
-    <string name="info_punts_votacio">Actualment restem a l\'espera que s\'oficialitzin els punts de votació. Quan es publiquin t\'ho notificarem.</string>
-    <string name="twitter_login_button">Inicia la sessió amb Twitter</string>
-    <string name="menu_search">Cerca col·legi electoral</string>
-    <string name="menu_share_app">Comparteix l\'aplicació</string>
-    <string name="menu_info">Informa\'t</string>
-    <string name="menu_web">Web oficial</string>
-    <string name="menu_vote">Participa</string>
-    <string name="menu_share_tab">Difon</string>
-    <string name="notification_title">Referèndum</string>
-    <string name="notification_channel_name">Referèndum</string>
-    <string name="notification_channel_description">Notificacions de novetats en el marc del referèndum</string>
-    <string name="no_college_found">No s\'ha trobat cap col·legi electoral vinculat a aquest codi postal</string>
-    <string name="button_options">Opcions</string>
-    <string name="enable_gps_title">Activa el GPS</string>
-    <string name="enable_gps_message">Per tal de trobar el teu punt de votació, necessitem saber la teva posició.</string>
 
 </resources>

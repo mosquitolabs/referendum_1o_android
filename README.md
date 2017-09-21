@@ -5,6 +5,7 @@ L'1 d'Octubre ja s'acosta i a causa de la censura i la persecució de drets demo
 Funcionalitats:
 
 * Accedeix a tota la informació de Twitter sense necessitat de ser-ne usuari.
+* Accedeix a la web oficial del referèndum sense fer servir servidors intermediaris ni VPN.
 * Troba el teu col·legi electoral.
 * Comparteix un reguitzell de materials gràfics (cartells, díptics...) a favor del dret a decidir.
 * Mantén-te informat de qualsevol novetat a través de les notificacions de l'aplicació.
@@ -26,12 +27,13 @@ Per a compilar l'aplicació, us caldrà el següent:
   * `hashtags.json`
   * `imatges.json`
   * `colegis.json` (i `colegis_mock.json` per a compilacions de debug)
-* Canviar Rules a Firebase Storage:
+* Canviar les regles a Firebase Storage:
     ```
     service firebase.storage {
       match /b/{bucket}/o {
         match /{allPaths=**} {
-          allow read, write;
+          allow read;
+          allow write: if request.auth != null;
         }
       }
     }

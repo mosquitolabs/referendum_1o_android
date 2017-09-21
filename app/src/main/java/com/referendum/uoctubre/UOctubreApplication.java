@@ -7,11 +7,15 @@ import android.graphics.Color;
 import android.os.Build;
 import android.util.Log;
 
+import com.crashlytics.android.Crashlytics;
 import com.referendum.uoctubre.main.Constants;
+import com.referendum.uoctubre.utils.StringsManager;
 import com.twitter.sdk.android.core.DefaultLogger;
 import com.twitter.sdk.android.core.Twitter;
 import com.twitter.sdk.android.core.TwitterAuthConfig;
 import com.twitter.sdk.android.core.TwitterConfig;
+
+import io.fabric.sdk.android.Fabric;
 
 
 public class UOctubreApplication extends Application {
@@ -23,6 +27,10 @@ public class UOctubreApplication extends Application {
         super.onCreate();
 
         sInstance = this;
+
+        Fabric.with(this, new Crashlytics());
+
+        StringsManager.initialize();
 
         TwitterConfig config = new TwitterConfig.Builder(this)
                 .logger(new DefaultLogger(Log.DEBUG))
@@ -36,8 +44,8 @@ public class UOctubreApplication extends Application {
             NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
             if (notificationManager != null) {
                 NotificationChannel mChannel = new NotificationChannel("referendum",
-                        getString(R.string.notification_channel_name), NotificationManager.IMPORTANCE_HIGH);
-                mChannel.setDescription(getString(R.string.notification_channel_description));
+                        StringsManager.getString("notification_channel_name"), NotificationManager.IMPORTANCE_HIGH);
+                mChannel.setDescription(StringsManager.getString("notification_channel_description"));
                 mChannel.enableLights(true);
                 mChannel.setLightColor(Color.RED);
                 notificationManager.createNotificationChannel(mChannel);

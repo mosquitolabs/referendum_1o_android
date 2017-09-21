@@ -18,6 +18,7 @@ import com.bumptech.glide.request.target.Target;
 import com.referendum.uoctubre.R;
 import com.referendum.uoctubre.model.Image;
 import com.referendum.uoctubre.utils.ImageFileProvider;
+import com.referendum.uoctubre.utils.StringsManager;
 import com.referendum.uoctubre.utils.TouchImageView;
 
 import java.io.File;
@@ -64,6 +65,14 @@ public class ImageActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_image, menu);
+        for (int i = 0; i < menu.size(); i++) {
+            MenuItem menuItem = menu.getItem(i);
+            switch (menuItem.getItemId()) {
+                case R.id.action_share:
+                    menuItem.setTitle(StringsManager.getString("menu_share"));
+                    break;
+            }
+        }
         return true;
     }
 
@@ -98,14 +107,14 @@ public class ImageActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(File result) {
             if (result == null) {
-                Toast.makeText(context, R.string.image_share_error, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, StringsManager.getString("image_share_error"), Toast.LENGTH_SHORT).show();
                 return;
             }
             Uri uri = ImageFileProvider.getUriForFile(context, context.getPackageName() + ".fileprovider", result);
             Intent intent = new Intent(Intent.ACTION_SEND);
             intent.setType("image/jpeg");
             intent.putExtra(Intent.EXTRA_STREAM, uri);
-            context.startActivity(Intent.createChooser(intent, context.getString(R.string.image_share_title)));
+            context.startActivity(Intent.createChooser(intent, StringsManager.getString("image_share_title")));
         }
     }
 }

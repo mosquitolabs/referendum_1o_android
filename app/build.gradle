@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
 
 android {
     compileSdkVersion 26
@@ -8,8 +9,8 @@ android {
         applicationId "com.referendum.uoctubre"
         minSdkVersion 17
         targetSdkVersion 26
-        versionCode 4
-        versionName "1.1"
+        versionCode 7
+        versionName "1.2.1"
         vectorDrawables.useSupportLibrary = true
     }
 
@@ -53,6 +54,11 @@ dependencies {
 
     //WebView
     compile 'com.github.delight-im:Android-AdvancedWebView:v3.0.0'
+
+    //Crashlytics
+    compile('com.crashlytics.sdk.android:crashlytics:2.6.8@aar') {
+        transitive = true;
+    }
 }
 
 apply plugin: 'com.google.gms.google-services'

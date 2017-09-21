@@ -9,6 +9,7 @@ import android.util.Log;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.referendum.uoctubre.R;
+import com.referendum.uoctubre.utils.StringsManager;
 
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
@@ -23,7 +24,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 .setLargeIcon(BitmapFactory.decodeResource(
                         getResources(), R.mipmap.ic_launcher))
                 .setSmallIcon(R.drawable.ic_notification)
-                .setContentTitle(getString(R.string.notification_title))
+                .setContentTitle(StringsManager.getString("notification_title"))
                 .setContentText(remoteMessage.getNotification().getBody());
 
         NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);

@@ -32,4 +32,8 @@ public abstract class BaseActivity extends AppCompatActivity {
             window.setStatusBarColor(ContextCompat.getColor(this, color));
         }
     }
+
+    protected boolean isActivitySafe() {
+        return !isFinishing() && !isDestroyed();
+    }
 }

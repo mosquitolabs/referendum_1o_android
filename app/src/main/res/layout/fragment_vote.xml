@@ -21,13 +21,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-        <TextView
+        <com.referendum.uoctubre.components.LocalStringTextView
             android:id="@+id/txtNoPunts"
+            string_id="info_punts_votacio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white_transparent"
             android:padding="@dimen/default_padding"
-            android:text="@string/info_punts_votacio"
             android:visibility="gone" />
 
     </RelativeLayout>

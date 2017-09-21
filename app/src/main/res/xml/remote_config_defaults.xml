@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <defaultsMap>
     <entry>
-        <key>twitter_login_required</key>
-        <value>false</value>
+        <key>share_app_message_ca</key>
+        <value>Descarrega't i difon l'aplicació de l'1 d'Octubre. Android: https://goo.gl/NvFrfK  iOS: (Properament) #referendumCAT #1Oct2017</value>
     </entry>
     <entry>
-        <key>share_app_message</key>
-        <value>Descarrega't i difon l'App de l'1 d'Octubre. Android: https://goo.gl/NvFrfK  iOS: (Properament) #referendumCAT #1Oct2017</value>
+        <key>share_app_message_oc</key>
+        <value>Descarrega't i difon l'aplicació de l'1 d'Octubre. Android: https://goo.gl/NvFrfK  iOS: (Properament) #referendumCAT #1Oct2017</value>
+    </entry>
+    <entry>
+        <key>share_app_message_es</key>
+        <value>Descárgate y difunde la aplicación del 1 de Octubre. Android: https://goo.gl/NvFrfK  iOS: (Próximamente) #referendumCAT #1Oct2017</value>
+    </entry>
+    <entry>
+        <key>share_app_message_en</key>
+        <value>Download and share the app about October 1st. Android: https://goo.gl/NvFrfK  iOS: (Soon) #referendumCAT #1Oct2017</value>
     </entry>
     <entry>
         <key>web_url</key>
-        <value>https://ssl-proxy.my-addr.org/myaddrproxy.php/https/www.ref1oct.eu/</value>
+        <value>https://independenciacat.github.io/referendum_cat_mirror/index.html</value>
     </entry>
 </defaultsMap>

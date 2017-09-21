@@ -12,7 +12,6 @@ import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetBehavior;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
@@ -47,6 +46,7 @@ import com.referendum.uoctubre.R;
 import com.referendum.uoctubre.main.Constants;
 import com.referendum.uoctubre.model.ColegiElectoral;
 import com.referendum.uoctubre.utils.MapClusterOptionsProvider;
+import com.referendum.uoctubre.utils.StringsManager;
 
 import java.lang.reflect.Type;
 import java.util.List;
@@ -102,7 +102,9 @@ public class VoteFragment extends BaseFragment implements OnMapReadyCallback, Go
             Handler gpsHandler = new Handler();
             gpsHandler.postDelayed(new Runnable() {
                 public void run() {
-                    startLocation();
+                    if (isFragmentSafe()) {
+                        startLocation();
+                    }
                 }
             }, 2000);
         }
@@ -118,7 +120,7 @@ public class VoteFragment extends BaseFragment implements OnMapReadyCallback, Go
 
     public void startLocation() {
         if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_ID);
+            requestPermissions(new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, LOCATION_PERMISSION_ID);
         } else {
             Location mLocation = LocationServices.FusedLocationApi.getLastLocation(mGoogleApiClient);
 
@@ -214,15 +216,15 @@ public class VoteFragment extends BaseFragment implements OnMapReadyCallback, Go
 
     public void showGpsDialog() {
         new AlertDialog.Builder(getActivity(), R.style.GpsDialog)
-                .setTitle(R.string.enable_gps_title)
-                .setMessage(R.string.enable_gps_message)
-                .setPositiveButton(R.string.button_options, new DialogInterface.OnClickListener() {
+                .setTitle(StringsManager.getString("enable_gps_title"))
+                .setMessage(StringsManager.getString("enable_gps_message"))
+                .setPositiveButton(StringsManager.getString("button_options"), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         startActivityForResult(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS), GPS);
                         dialog.dismiss();
                     }
                 })
-                .setNegativeButton(R.string.button_cancel, new DialogInterface.OnClickListener() {
+                .setNegativeButton(StringsManager.getString("button_cancel"), new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
                     }
@@ -267,7 +269,7 @@ public class VoteFragment extends BaseFragment implements OnMapReadyCallback, Go
         }).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception exception) {
-                Toast.makeText(getActivity(), getString(R.string.load_error), Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), StringsManager.getString("load_error"), Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -275,7 +277,7 @@ public class VoteFragment extends BaseFragment implements OnMapReadyCallback, Go
     public void searchStation(int codiPostal) {
         boolean found = false;
         if (mColegiElectorals == null || mColegiElectorals.size() == 0) {
-            Toast.makeText(getActivity(), R.string.no_college_found, Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), StringsManager.getString("no_college_found"), Toast.LENGTH_SHORT).show();
         } else {
             for (ColegiElectoral colegi : mColegiElectorals) {
                 if (colegi.getCp() == codiPostal) {
@@ -287,9 +289,8 @@ public class VoteFragment extends BaseFragment implements OnMapReadyCallback, Go
 
             if (found) {
                 showColegiElectoralData(mSelectedColegiElectoral);
-            }
-            else{
-                Toast.makeText(getActivity(), R.string.no_college_found, Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getActivity(), StringsManager.getString("no_college_found"), Toast.LENGTH_SHORT).show();
             }
         }
     }

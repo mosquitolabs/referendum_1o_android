@@ -4,21 +4,21 @@
     <item
         android:id="@+id/navigation_informat"
         android:icon="@drawable/ic_vector_list"
-        android:title="@string/menu_info" />
+        android:title="@null" />
 
     <item
         android:id="@+id/navigation_web"
         android:icon="@drawable/ic_web"
-        android:title="@string/menu_web" />
+        android:title="@null" />
 
     <item
         android:id="@+id/navigation_vota"
         android:icon="@drawable/ic_vector_vota"
-        android:title="@string/menu_vote" />
+        android:title="@null" />
 
     <item
         android:id="@+id/navigation_comparteix"
         android:icon="@drawable/ic_vector_share"
-        android:title="@string/menu_share_tab" />
+        android:title="@null" />
 
 </menu>

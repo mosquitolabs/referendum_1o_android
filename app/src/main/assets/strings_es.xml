@@ -1,0 +1,51 @@
+<resources>
+
+    <!-- Generic strings -->
+    <string name="button_ok">Aceptar</string>
+    <string name="button_cancel">Cancelar</string>
+    <string name="button_options">Opciones</string>
+
+    <!-- Common errors -->
+    <string name="load_error">Se ha producido un error al cargar. Revisa la conexión e inténtalo de nuevo.</string>
+    <string name="retry_button">Reintentar</string>
+
+    <!-- Main screen -->
+    <string name="title_twitter">Últimas novedades</string>
+    <string name="title_web">Web oficial</string>
+    <string name="title_vote">Puntos de votación</string>
+    <string name="title_share">Difundir y compartir la aplicación</string>
+    <string name="change_language_title">Cambiar idioma de la aplicación</string>
+
+    <!-- Info screen -->
+    <string name="twitter_add_hashtag">Añadir un hashtag</string>
+    <string name="twitter_remove_hashtag">Borrar el hashtag</string>
+
+    <!-- Vote screen -->
+    <string name="info_punts_votacio">Actualmente estamos a la espera de que se oficialicen los puntos de votación. Cuando se publiquen te lo notificaremos.</string>
+    <string name="enable_gps_title">Activar el GPS</string>
+    <string name="enable_gps_message">Con el fin de encontrar tu punto de votación, necesitamos saber tu posición.</string>
+    <string name="search_text">Introduce el código postal…</string>
+    <string name="no_college_found">No se ha encontrado ningún colegio electoral vinculado a este código postal</string>
+
+    <!-- Share screen -->
+    <string name="image_share_title">Compartir la imagen</string>
+    <string name="image_share_error">No se ha podido compartir la imagen. Inténtalo de nuevo.</string>
+    <string name="share_subject">1-O Referéndum</string>
+    <string name="share_select">Compartir con…</string>
+
+    <!-- Notifications -->
+    <string name="notification_title">Referéndum</string>
+    <string name="notification_channel_name">Referéndum</string>
+    <string name="notification_channel_description">Notificaciones de novedades en el marco del referéndum</string>
+
+    <!-- Menus -->
+    <string name="menu_info">Infórmate</string>
+    <string name="menu_web">Web oficial</string>
+    <string name="menu_vote">Participa</string>
+    <string name="menu_share_tab">Difunde</string>
+    <string name="menu_search">Buscar colegio electoral</string>
+    <string name="menu_share_app">Compartir la aplicación</string>
+    <string name="menu_language">Cambiar idioma de la aplicación</string>
+    <string name="menu_share">Compartir</string>
+
+</resources>

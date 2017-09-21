@@ -3,16 +3,16 @@ package com.referendum.uoctubre.main;
 import android.annotation.SuppressLint;
 import android.app.SearchManager;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.design.internal.BottomNavigationItemView;
-import android.support.design.internal.BottomNavigationMenuView;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.SearchView;
 import android.text.InputType;
 import android.util.Log;
@@ -29,6 +29,7 @@ import com.referendum.uoctubre.fragments.InfoFragment;
 import com.referendum.uoctubre.fragments.ShareFragment;
 import com.referendum.uoctubre.fragments.VoteFragment;
 import com.referendum.uoctubre.fragments.WebFragment;
+import com.referendum.uoctubre.utils.StringsManager;
 
 public class MainActivity extends BaseActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
@@ -57,11 +58,22 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         mNavigationView = findViewById(R.id.navigation);
         mNavigationView.setOnNavigationItemSelectedListener(this);
 
-        BottomNavigationMenuView menuView = (BottomNavigationMenuView) mNavigationView.getChildAt(0);
-        for (int i = 0; i < menuView.getChildCount(); i++) {
-            BottomNavigationItemView itemView = (BottomNavigationItemView) menuView.getChildAt(i);
-            itemView.setShiftingMode(false);
-            itemView.setChecked(false);
+        for (int i = 0; i < mNavigationView.getMenu().size(); i++) {
+            MenuItem menuItem = mNavigationView.getMenu().getItem(i);
+            switch (menuItem.getItemId()) {
+                case R.id.navigation_informat:
+                    menuItem.setTitle(StringsManager.getString("menu_info"));
+                    break;
+                case R.id.navigation_web:
+                    menuItem.setTitle(StringsManager.getString("menu_web"));
+                    break;
+                case R.id.navigation_vota:
+                    menuItem.setTitle(StringsManager.getString("menu_vote"));
+                    break;
+                case R.id.navigation_comparteix:
+                    menuItem.setTitle(StringsManager.getString("menu_share_tab"));
+                    break;
+            }
         }
 
         if (savedInstanceState == null) {
@@ -70,22 +82,22 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
             mCurrentScreen = savedInstanceState.getString("currentScreen", TAB_TWITTER);
             switch (mCurrentScreen) {
                 case TAB_TWITTER:
-                    getSupportActionBar().setTitle(R.string.title_twitter);
+                    getSupportActionBar().setTitle(StringsManager.getString("title_twitter"));
                     mFragment = getSupportFragmentManager().findFragmentByTag(InfoFragment.TAG);
                     mNavigationView.getMenu().getItem(INFORMAT_FRAGMENT).setChecked(true);
                     break;
                 case TAB_WEB:
-                    getSupportActionBar().setTitle(R.string.title_web);
+                    getSupportActionBar().setTitle(StringsManager.getString("title_web"));
                     mFragment = getSupportFragmentManager().findFragmentByTag(WebFragment.TAG);
                     mNavigationView.getMenu().getItem(WEB_FRAGMENT).setChecked(true);
                     break;
                 case TAB_VOTE:
-                    getSupportActionBar().setTitle(R.string.title_vote);
+                    getSupportActionBar().setTitle(StringsManager.getString("title_vote"));
                     mFragment = getSupportFragmentManager().findFragmentByTag(VoteFragment.TAG);
                     mNavigationView.getMenu().getItem(VOTA_FRAGMENT).setChecked(true);
                     break;
                 default:
-                    getSupportActionBar().setTitle(R.string.title_share);
+                    getSupportActionBar().setTitle(StringsManager.getString("title_share"));
                     mFragment = getSupportFragmentManager().findFragmentByTag(ShareFragment.TAG);
                     mNavigationView.getMenu().getItem(COMPARTEIX_FRAGMENT).setChecked(true);
                     break;
@@ -99,7 +111,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
     @Override
     public void onBackPressed() {
         if (mFragment != null && mFragment instanceof WebFragment) {
-            if (!((WebFragment)mFragment).onBackPressed()) {
+            if (!((WebFragment) mFragment).onBackPressed()) {
                 super.onBackPressed();
             }
         } else {
@@ -132,9 +144,25 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         MenuInflater menuInflater = getMenuInflater();
         menuInflater.inflate(R.menu.menu_main, menu);
 
+        for (int i = 0; i < menu.size(); i++) {
+            MenuItem menuItem = menu.getItem(i);
+            switch (menuItem.getItemId()) {
+                case R.id.action_search:
+                    menuItem.setTitle(StringsManager.getString("menu_search"));
+                    break;
+                case R.id.action_share:
+                    menuItem.setTitle(StringsManager.getString("menu_share_app"));
+                    break;
+                case R.id.action_language:
+                    menuItem.setTitle(StringsManager.getString("menu_language"));
+                    break;
+            }
+        }
+
         if (mFragment instanceof VoteFragment) {
             menu.findItem(R.id.action_search).setVisible(true);
             menu.findItem(R.id.action_share).setVisible(false);
+            menu.findItem(R.id.action_language).setVisible(false);
 
             final MenuItem searchItem = menu.findItem(R.id.action_search);
 
@@ -142,8 +170,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
 
             if (searchItem != null) {
                 searchView = (SearchView) searchItem.getActionView();
-                searchView.setQueryHint(getString(R.string.search_text));
-                searchView.setSearchableInfo(searchManager.getSearchableInfo(MainActivity.this.getComponentName()));
+                searchView.setQueryHint(StringsManager.getString("search_text"));
                 searchView.setInputType(InputType.TYPE_CLASS_NUMBER);
 
                 final EditText searchEditText = searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text);
@@ -177,9 +204,15 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
         } else if (mFragment instanceof ShareFragment) {
             menu.findItem(R.id.action_search).setVisible(false);
             menu.findItem(R.id.action_share).setVisible(true);
+            menu.findItem(R.id.action_language).setVisible(false);
+        } else if (mFragment instanceof WebFragment) {
+            menu.findItem(R.id.action_search).setVisible(false);
+            menu.findItem(R.id.action_share).setVisible(false);
+            menu.findItem(R.id.action_language).setVisible(false);
         } else {
             menu.findItem(R.id.action_search).setVisible(false);
             menu.findItem(R.id.action_share).setVisible(false);
+            menu.findItem(R.id.action_language).setVisible(true);
         }
         return super.onCreateOptionsMenu(menu);
     }
@@ -191,12 +224,49 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
                 //Allow changing the share message via Firebase
                 FirebaseRemoteConfig firebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
                 firebaseRemoteConfig.setDefaults(R.xml.remote_config_defaults);
-                String shareBody = firebaseRemoteConfig.getString(Constants.FIREBASE_CONFIG_SHARE_APP_MESSAGEREQUIRED);
+                String shareBody = firebaseRemoteConfig.getString(Constants.FIREBASE_CONFIG_SHARE_APP_MESSAGEREQUIRED + "_" + StringsManager.getCurrentLanguage());
                 Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
                 sharingIntent.setType("text/plain");
-                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "1-O Referèndum");
+                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, StringsManager.getString("share_subject"));
                 sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
-                startActivity(Intent.createChooser(sharingIntent, "Selecciona on Compartir"));
+                startActivity(Intent.createChooser(sharingIntent, StringsManager.getString("share_select")));
+                return true;
+            case R.id.action_language:
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle(StringsManager.getString("change_language_title"));
+
+                String[] languages = new String[]{"Català", "Aranés (pròplèuments)", "Castellano", "English"};
+
+                builder.setItems(languages, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        String newLang;
+                        switch (which) {
+                            case 0:
+                            default:
+                                newLang = "ca";
+                                break;
+                            case 1:
+                                newLang = "oc";
+                                break;
+                            case 2:
+                                newLang = "es";
+                                break;
+                            case 3:
+                                newLang = "en";
+                                break;
+                        }
+                        if (!newLang.equals(StringsManager.getCurrentLanguage())) {
+                            StringsManager.setLanguage(newLang);
+                            Intent intent = new Intent(MainActivity.this, MainActivity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                            startActivity(intent);
+                            finish();
+                        }
+                        dialog.dismiss();
+                    }
+                });
+                builder.show();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -206,22 +276,24 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int itemId = item.getItemId();
-        if (itemId == R.id.navigation_informat) {
-            showFragment(InfoFragment.TAG);
-            getSupportActionBar().setTitle(R.string.title_twitter);
-            mCurrentScreen = TAB_TWITTER;
-        } else if (itemId == R.id.navigation_vota) {
-            showFragment(VoteFragment.TAG);
-            getSupportActionBar().setTitle(R.string.title_vote);
-            mCurrentScreen = TAB_VOTE;
-        } else if (itemId == R.id.navigation_comparteix) {
-            showFragment(ShareFragment.TAG);
-            getSupportActionBar().setTitle(R.string.title_share);
-            mCurrentScreen = TAB_SHARE;
-        } else if (itemId == R.id.navigation_web) {
-            showFragment(WebFragment.TAG);
-            getSupportActionBar().setTitle(R.string.title_web);
-            mCurrentScreen = TAB_WEB;
+        if (isActivitySafe()) {
+            if (itemId == R.id.navigation_informat) {
+                showFragment(InfoFragment.TAG);
+                getSupportActionBar().setTitle(StringsManager.getString("title_twitter"));
+                mCurrentScreen = TAB_TWITTER;
+            } else if (itemId == R.id.navigation_vota) {
+                showFragment(VoteFragment.TAG);
+                getSupportActionBar().setTitle(StringsManager.getString("title_vote"));
+                mCurrentScreen = TAB_VOTE;
+            } else if (itemId == R.id.navigation_comparteix) {
+                showFragment(ShareFragment.TAG);
+                getSupportActionBar().setTitle(StringsManager.getString("title_share"));
+                mCurrentScreen = TAB_SHARE;
+            } else if (itemId == R.id.navigation_web) {
+                showFragment(WebFragment.TAG);
+                getSupportActionBar().setTitle(StringsManager.getString("title_web"));
+                mCurrentScreen = TAB_WEB;
+            }
         }
         return true;
     }
@@ -272,7 +344,7 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
     public void showFirstFragment() {
         mNavigationView.getMenu().getItem(INFORMAT_FRAGMENT).setChecked(true);
         showFragment(InfoFragment.TAG);
-        getSupportActionBar().setTitle(R.string.title_twitter);
+        getSupportActionBar().setTitle(StringsManager.getString("title_twitter"));
         mCurrentScreen = TAB_TWITTER;
     }
 }

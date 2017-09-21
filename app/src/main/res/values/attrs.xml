@@ -1,0 +1,7 @@
+<resources>
+    <declare-styleable name="StringAttributes">
+        <attr name="string_id" format="string" />
+        <attr name="hint_string_id" format="string" />
+        <attr name="content_description_string_id" format="string" />
+    </declare-styleable>
+</resources>

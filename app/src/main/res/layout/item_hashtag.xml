@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_gravity="center_vertical"
     android:layout_marginBottom="10dp"
     android:layout_marginEnd="4dp"
@@ -14,11 +14,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
+        android:background="@color/white"
         android:gravity="center"
         android:orientation="horizontal"
         android:paddingEnd="6dp"
-        android:paddingStart="6dp"
-        android:background="@color/white">
+        android:paddingStart="6dp">
 
         <TextView
             android:id="@+id/hashtag_name"
@@ -28,17 +28,18 @@
             android:textSize="14sp"
             tools:text="#Referendum1Octubre" />
 
-        <ImageView
+        <com.referendum.uoctubre.components.LocalStringImageView
             android:id="@+id/delete_button"
+            content_description_string_id="twitter_remove_hashtag"
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:layout_marginBottom="4dp"
             android:layout_marginEnd="-2dp"
             android:layout_marginStart="2dp"
-            android:tint="@color/grey_dark"
             android:layout_marginTop="4dp"
             android:background="?selectableItemBackgroundBorderless"
-            android:contentDescription="@string/twitter_remove_hashtag"
+            android:contentDescription="@null"
+            android:tint="@color/grey_dark"
             app:srcCompat="@drawable/ic_vector_close" />
     </LinearLayout>
 </android.support.v7.widget.CardView>
