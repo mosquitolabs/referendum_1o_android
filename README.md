@@ -16,7 +16,7 @@ Aquesta aplicació és de codi obert per tal que tothom pugui replicar-la.
 ## Descàrrega
 
 * Android: https://play.google.com/store/apps/details?id=com.referendum.uoctubre
-* iOS: Pròximament estarà disponible.
+* iOS: https://itunes.apple.com/us/app/referendum/id1289059350
 
 ## Compilació
 
