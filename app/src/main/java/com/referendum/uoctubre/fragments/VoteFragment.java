@@ -12,6 +12,7 @@ import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.CalendarContract;
 import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -24,6 +25,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -46,8 +48,10 @@ import com.referendum.uoctubre.model.PollingStationResponse;
 import com.referendum.uoctubre.utils.PollingStationDataFetcher;
 import com.referendum.uoctubre.utils.StringsManager;
 
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 
 public class VoteFragment extends BaseFragment implements OnMapReadyCallback, GoogleApiClient.OnConnectionFailedListener,
@@ -67,8 +71,8 @@ public class VoteFragment extends BaseFragment implements OnMapReadyCallback, Go
 
     private BottomSheetBehavior bsb;
     private TextView txtLocalitat, txtAdresa, txtNomLocal, txtDistricte, txtSeccio, txtMesa;
+    private ImageView icnCalendari;
     private TextInputEditText etNif, etDay, etMonth, etYear, etPostalCode;
-    private LocalStringButton btnSearch;
 
     private GoogleApiClient mGoogleApiClient;
     private GoogleMap mGoogleMap;
@@ -94,6 +98,7 @@ public class VoteFragment extends BaseFragment implements OnMapReadyCallback, Go
         txtDistricte = view.findViewById(R.id.txtDistricte);
         txtSeccio = view.findViewById(R.id.txtSeccio);
         txtMesa = view.findViewById(R.id.txtMesa);
+        icnCalendari = view.findViewById(R.id.icnCalendari);
 
         formLayout = view.findViewById(R.id.form_layout);
         loadingLayout = view.findViewById(R.id.loading_layout);
@@ -106,7 +111,7 @@ public class VoteFragment extends BaseFragment implements OnMapReadyCallback, Go
         etMonth = view.findViewById(R.id.etMonth);
         etYear = view.findViewById(R.id.etYear);
         etPostalCode = view.findViewById(R.id.etPostalCode);
-        btnSearch = view.findViewById(R.id.btnSearch);
+        LocalStringButton btnSearch = view.findViewById(R.id.btnSearch);
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -117,11 +122,34 @@ public class VoteFragment extends BaseFragment implements OnMapReadyCallback, Go
                 searchPollingStation();
             }
         });
+        TextView btnPrivacyPolicy = view.findViewById(R.id.btnPrivacyPolicy);
+        btnPrivacyPolicy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                InputMethodManager imm = (InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                if (imm != null) {
+                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                }
+                showPrivacyPolicy();
+            }
+        });
 
         bsb = BottomSheetBehavior.from(bottomSheet);
 
         mMapFragment.getMapAsync(this);
         return view;
+    }
+
+    private void showPrivacyPolicy() {
+        new AlertDialog.Builder(getActivity(), R.style.GpsDialog)
+                .setTitle(StringsManager.getString("form_privacy_title"))
+                .setMessage(StringsManager.getString("form_privacy_description"))
+                .setPositiveButton(StringsManager.getString("button_ok"), new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                })
+                .show();
     }
 
     @Override
@@ -216,7 +244,7 @@ public class VoteFragment extends BaseFragment implements OnMapReadyCallback, Go
                 .show();
     }
 
-    public void showColegiElectoralData(ColegiElectoral colegiElectoral) {
+    public void showColegiElectoralData(final ColegiElectoral colegiElectoral) {
         LatLng latLng = new LatLng(colegiElectoral.getLat(), colegiElectoral.getLon());
         CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 14);
         mGoogleMap.animateCamera(cameraUpdate);
@@ -228,7 +256,29 @@ public class VoteFragment extends BaseFragment implements OnMapReadyCallback, Go
         txtSeccio.setText(StringsManager.getString("data_seccio", colegiElectoral.getSeccio()));
         txtMesa.setText(StringsManager.getString("data_mesa", colegiElectoral.getMesa()));
 
+        icnCalendari.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                addEventToCalendar(colegiElectoral);
+            }
+        });
+
         bsb.setState(BottomSheetBehavior.STATE_EXPANDED);
+    }
+
+    private void addEventToCalendar(ColegiElectoral colegiElectoral) {
+        Calendar calendar = Calendar.getInstance(Locale.getDefault());
+        calendar.set(2017, Calendar.OCTOBER, 1, 9, 0);
+
+        Intent intent = new Intent(Intent.ACTION_EDIT);
+        intent.setType("vnd.android.cursor.item/event");
+        intent.putExtra(CalendarContract.Events.TITLE, StringsManager.getString("notification_title"));
+        intent.putExtra(CalendarContract.EXTRA_EVENT_BEGIN_TIME, calendar.getTimeInMillis());
+        intent.putExtra(CalendarContract.Events.ALL_DAY, true);
+        String location = colegiElectoral.getLocal() + ": " + colegiElectoral.getAdresa() + ", " + colegiElectoral.getMunicipi();
+        intent.putExtra(CalendarContract.Events.EVENT_LOCATION, location);
+
+        startActivity(intent);
     }
 
     public void searchPollingStation() {
@@ -347,7 +397,7 @@ public class VoteFragment extends BaseFragment implements OnMapReadyCallback, Go
     }
 
     public boolean onBackPressed() {
-        if (errorLayout.getVisibility() == View.VISIBLE || mapLayout.getVisibility() == View.VISIBLE) {
+        if (errorLayout != null && mapLayout != null && (errorLayout.getVisibility() == View.VISIBLE || mapLayout.getVisibility() == View.VISIBLE)) {
             errorLayout.setVisibility(View.GONE);
             mapLayout.setVisibility(View.GONE);
             formLayout.setVisibility(View.VISIBLE);

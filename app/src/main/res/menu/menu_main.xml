@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/action_share"
-        android:icon="@drawable/ic_vector_share"
+        android:id="@+id/action_language"
+        android:icon="@drawable/ic_vector_language"
         android:title="@null"
         app:showAsAction="ifRoom" />
 
     <item
-        android:id="@+id/action_language"
-        android:icon="@drawable/ic_vector_language"
+        android:id="@+id/action_share"
+        android:icon="@drawable/ic_vector_share"
         android:title="@null"
         app:showAsAction="ifRoom" />
 

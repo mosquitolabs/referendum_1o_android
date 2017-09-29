@@ -17,6 +17,11 @@
         android:title="@null" />
 
     <item
+        android:id="@+id/navigation_results"
+        android:icon="@drawable/ic_vector_results"
+        android:title="@null" />
+
+    <item
         android:id="@+id/navigation_comparteix"
         android:icon="@drawable/ic_vector_share"
         android:title="@null" />

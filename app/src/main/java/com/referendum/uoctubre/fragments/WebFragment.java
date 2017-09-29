@@ -145,6 +145,11 @@ public class WebFragment extends BaseFragment implements AdvancedWebView.Listene
     }
 
     public boolean onBackPressed() {
-        return !mWebView.onBackPressed();
+        if (mWebView!=null) {
+            return !mWebView.onBackPressed();
+        }
+        else{
+            return false;
+        }
     }
 }

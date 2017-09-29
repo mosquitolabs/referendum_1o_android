@@ -2,26 +2,26 @@
 <defaultsMap>
     <entry>
         <key>share_app_message_ca</key>
-        <value>Descarrega't i difon l'aplicació de l'1 d'Octubre. Android: https://goo.gl/NvFrfK  iOS: (Properament) #referendumCAT #1Oct2017</value>
+        <value>Descarrega't i difon l'aplicació de l'1 d'Octubre. Android: https://goo.gl/NvFrfK / iOS: https://goo.gl/E5RCHB #referendumCAT #1Oct2017</value>
     </entry>
     <entry>
         <key>share_app_message_oc</key>
-        <value>Descarga-te e difon era aplicacion der 1 d'Octobre. Android: https://goo.gl/NvFrfK  iOS: (Pròplèuments) #referendumCAT #1Oct2017</value>
+        <value>Descarga-te e difon era aplicacion der 1 d'Octobre. Android: https://goo.gl/NvFrfK / iOS: https://goo.gl/E5RCHB #referendumCAT #1Oct2017</value>
     </entry>
     <entry>
         <key>share_app_message_es</key>
-        <value>Descárgate y difunde la aplicación del 1 de Octubre. Android: https://goo.gl/NvFrfK  iOS: (Próximamente) #referendumCAT #1Oct2017</value>
+        <value>Descárgate y difunde la aplicación del 1 de Octubre. Android: https://goo.gl/NvFrfK / iOS: https://goo.gl/E5RCHB #referendumCAT #1Oct2017</value>
     </entry>
     <entry>
         <key>share_app_message_en</key>
-        <value>Download and share the app about October 1st. Android: https://goo.gl/NvFrfK  iOS: (Soon) #referendumCAT #1Oct2017</value>
+        <value>Download and share the app about October 1st. Android: https://goo.gl/NvFrfK / iOS: https://goo.gl/E5RCHB #referendumCAT #1Oct2017</value>
     </entry>
     <entry>
         <key>web_url</key>
-        <value>https://onvotar.garantiespelreferendum.com/</value>
+        <value>https://ipfs.io/ipns/QmZxWEBJBVkGDGaKdYPQUXX4KC5TCWbvuR4iYZrTML8XCR</value>
     </entry>
     <entry>
         <key>api_url</key>
-        <value>https://onvotar.garantiespelreferendum.com/db/</value>
+        <value>https://ipfs.io/ipns/QmZxWEBJBVkGDGaKdYPQUXX4KC5TCWbvuR4iYZrTML8XCR/db.20170926/</value>
     </entry>
 </defaultsMap>

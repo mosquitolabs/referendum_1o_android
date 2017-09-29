@@ -27,7 +27,7 @@ public class PollingStationDataFetcher {
         PollingStationResponse pollingStationResponse = new PollingStationResponse();
         String keyDate = new SimpleDateFormat("yyyyMMdd", Locale.US).format(birthDate);
         String keyZipCode = String.format(Locale.US, "%05d", zipCode);
-        String keyNif = nif.substring(nif.length() - 6, nif.length());
+        String keyNif = nif.toUpperCase(Locale.US).substring(nif.length() - 6, nif.length());
 
         String key = keyNif + keyDate + keyZipCode;
 

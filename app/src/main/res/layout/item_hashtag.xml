@@ -30,7 +30,6 @@
 
         <com.referendum.uoctubre.components.LocalStringImageView
             android:id="@+id/delete_button"
-            app:content_description_string_id="twitter_remove_hashtag"
             android:layout_width="16dp"
             android:layout_height="16dp"
             android:layout_marginBottom="4dp"
@@ -40,6 +39,7 @@
             android:background="?selectableItemBackgroundBorderless"
             android:contentDescription="@null"
             android:tint="@color/grey_dark"
+            app:content_description_string_id="twitter_remove_hashtag"
             app:srcCompat="@drawable/ic_vector_close" />
     </LinearLayout>
 </android.support.v7.widget.CardView>

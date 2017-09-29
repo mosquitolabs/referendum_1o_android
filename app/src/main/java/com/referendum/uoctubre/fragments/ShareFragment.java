@@ -99,7 +99,7 @@ public class ShareFragment extends BaseFragment {
                         @Override
                         public void onImageClicked(Image image, View view) {
                             Intent intent = new Intent(getContext(), ImageActivity.class);
-                            intent.putExtra(Constants.INTENT_TAG_IMAGE, image);
+                            intent.putExtra(ImageActivity.EXTRA_IMAGE, image);
                             ActivityOptionsCompat options = ActivityOptionsCompat.
                                     makeSceneTransitionAnimation(getActivity(), view, "image");
                             startActivity(intent, options.toBundle());

@@ -15,6 +15,8 @@ import java.util.Set;
 public class SharedPreferencesUtils {
     public static final String USER_HASHTAGS = "user_hashtags";
     public static final String APP_LANGUAGE = "app_language";
+    public static final String NUMBER_OF_EXECUTIONS = "number_of_executions";
+    public static final String HAS_RATED = "has_rated";
 
     public static String getString(String key, String defaultValue) {
         SharedPreferences settings = PreferenceManager.getDefaultSharedPreferences(UOctubreApplication.getInstance());

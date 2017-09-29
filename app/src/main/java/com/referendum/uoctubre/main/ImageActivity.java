@@ -24,6 +24,7 @@ import com.referendum.uoctubre.utils.TouchImageView;
 import java.io.File;
 
 public class ImageActivity extends AppCompatActivity {
+    public static final String EXTRA_IMAGE = "image";
 
     private Image image;
 
@@ -39,13 +40,18 @@ public class ImageActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setHomeButtonEnabled(true);
 
-        image = (Image) getIntent().getSerializableExtra(Constants.INTENT_TAG_IMAGE);
-        TouchImageView imageView = findViewById(R.id.activity_image_image);
-        Glide.with(this)
-                .load(image.getUrl())
-                .apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL))
-                .into(imageView);
-        setTitle(image.getName());
+        image = (Image) getIntent().getSerializableExtra(EXTRA_IMAGE);
+
+        if (image == null) {
+            finish();
+        } else {
+            TouchImageView imageView = findViewById(R.id.activity_image_image);
+            Glide.with(this)
+                    .load(image.getUrl())
+                    .apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL))
+                    .into(imageView);
+            setTitle(image.getName());
+        }
     }
 
     @Override

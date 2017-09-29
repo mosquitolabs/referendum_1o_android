@@ -4,9 +4,11 @@
     <string name="button_ok">Aceptar</string>
     <string name="button_cancel">Cancelar</string>
     <string name="button_options">Opciones</string>
+    <string name="button_not_now">Ahora no</string>
+    <string name="button_rate">Puntuar</string>
 
     <!-- Common errors -->
-    <string name="load_error">No se ha podido cargar. Revisa la conexión e inténtalo de nuevo.</string>
+    <string name="load_error">No se ha podido cargar. Es possible que el servidor haya sido bloqueado, tenga un exceso de peticiones o que no tengas conexión a Internet. Inténtalo de nuevo más tarde.</string>
     <string name="retry_button">Reintentar</string>
 
     <!-- Main screen -->
@@ -14,6 +16,7 @@
     <string name="title_web">Web oficial</string>
     <string name="title_vote">Punto de votación</string>
     <string name="title_share">Difundir y compartir la aplicación</string>
+    <string name="title_results">Resultados</string>
     <string name="change_language_title">Cambiar idioma de la aplicación</string>
 
     <!-- Info screen -->
@@ -29,6 +32,8 @@
     <string name="form_year">Año</string>
     <string name="form_zip_code">Código postal</string>
     <string name="form_search">Buscar</string>
+    <string name="form_privacy_title">Política de privacidad</string>
+    <string name="form_privacy_description">Esta aplicación en ningún caso guarda tu información personal, los datos que puedes introducir en el formulario simplemente se usan para buscar tu punto de votación y se destruyen una vez cierras la aplicación. Para cualquier duda, puedes contactar con nosotros mediante el correo electrónico de la Play Store.</string>
     <string name="enable_gps_title">Activar el GPS</string>
     <string name="enable_gps_message">Con el fin de encontrar tu punto de votación, necesitamos saber tu posición.</string>
     <string name="no_college_found">No se ha encontrado ningún punto de votación vinculado a la información introducida</string>
@@ -40,12 +45,27 @@
     <string name="data_districte">Distrito: %s</string>
     <string name="data_seccio">Sección: %s</string>
     <string name="data_mesa">Mesa: %s</string>
+    <string name="data_add_to_calendar">Añadir al calendario</string>
 
     <!-- Share screen -->
     <string name="image_share_title">Compartir la imagen</string>
     <string name="image_share_error">No se ha podido compartir la imagen. Inténtalo de nuevo.</string>
     <string name="share_subject">1-O Referéndum</string>
     <string name="share_select">Compartir con…</string>
+
+    <!-- Results screen -->
+    <string name="graph_title">Resultados del referéndum de independencia de Cataluña</string>
+    <string name="graph_yes">Sí</string>
+    <string name="graph_no">No</string>
+    <string name="graph_blank">Blanco</string>
+    <string name="graph_invalid">Nulo</string>
+    <string name="graph_counted">Escrutado</string>
+    <string name="graph_participation">Participación</string>
+    <string name="graph_empty">Resultados aún no disponibles.</string>
+
+    <!-- Rating dialog -->
+    <string name="rating_title">Puntuar la aplicación</string>
+    <string name="rating_description">Para hacer frente a los intentos de censura por parte de algunos sectores que intentan forzar la eliminación de  la aplicación, te animamos a puntuarla con cinco estrellas, si lo consideras oportuno.</string>
 
     <!-- Notifications -->
     <string name="notification_title">Referéndum</string>
@@ -57,6 +77,7 @@
     <string name="menu_web">Web oficial</string>
     <string name="menu_vote">Participa</string>
     <string name="menu_share_tab">Difunde</string>
+    <string name="menu_results">Resultados</string>
     <string name="menu_share_app">Compartir la aplicación</string>
     <string name="menu_language">Cambiar idioma de la aplicación</string>
     <string name="menu_share">Compartir</string>

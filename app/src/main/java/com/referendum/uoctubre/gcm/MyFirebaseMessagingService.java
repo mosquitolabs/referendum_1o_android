@@ -17,19 +17,21 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
-        Log.d(TAG, "From: " + remoteMessage.getFrom());
-        Log.d(TAG, "Notification Message Body: " + remoteMessage.getNotification().getBody());
+        if (remoteMessage != null && remoteMessage.getNotification() != null) {
+            Log.d(TAG, "From: " + remoteMessage.getFrom());
+            Log.d(TAG, "Notification Message Body: " + remoteMessage.getNotification().getBody());
 
-        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, "referendum")
-                .setLargeIcon(BitmapFactory.decodeResource(
-                        getResources(), R.mipmap.ic_launcher))
-                .setSmallIcon(R.drawable.ic_notification)
-                .setContentTitle(StringsManager.getString("notification_title"))
-                .setContentText(remoteMessage.getNotification().getBody());
+            NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this, "referendum")
+                    .setLargeIcon(BitmapFactory.decodeResource(
+                            getResources(), R.mipmap.ic_launcher))
+                    .setSmallIcon(R.drawable.ic_notification)
+                    .setContentTitle(StringsManager.getString("notification_title"))
+                    .setContentText(remoteMessage.getNotification().getBody());
 
-        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        if (notificationManager != null) {
-            notificationManager.notify(1, notificationBuilder.build());
+            NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+            if (notificationManager != null) {
+                notificationManager.notify(1, notificationBuilder.build());
+            }
         }
     }
 }

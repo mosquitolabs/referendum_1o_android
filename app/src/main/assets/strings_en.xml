@@ -4,9 +4,11 @@
     <string name="button_ok">OK</string>
     <string name="button_cancel">Cancel</string>
     <string name="button_options">Options</string>
+    <string name="button_not_now">Not now</string>
+    <string name="button_rate">Rate</string>
 
     <!-- Common errors -->
-    <string name="load_error">Could not load. Please check your Internet connection and try again.</string>
+    <string name="load_error">Could not load. The server may have been blocked, be overloaded or you may not be connected to the Internet. Please try again later.</string>
     <string name="retry_button">Retry</string>
 
     <!-- Main screen -->
@@ -14,6 +16,7 @@
     <string name="title_web">Official site</string>
     <string name="title_vote">Polling station</string>
     <string name="title_share">Spread and share the app</string>
+    <string name="title_results">Results</string>
     <string name="change_language_title">Change app language</string>
 
     <!-- Info screen -->
@@ -29,6 +32,8 @@
     <string name="form_year">Year</string>
     <string name="form_zip_code">Zip code</string>
     <string name="form_search">Search</string>
+    <string name="form_privacy_title">Privacy policy</string>
+    <string name="form_privacy_description">This app does not store your personal information under any circumstance, the data you enter in the form is only used to search for your polling place and is destroyed once you close the app. If you have any doubt, you can contact us via the e-mail address on the Play Store.</string>
     <string name="enable_gps_title">Enable GPS</string>
     <string name="enable_gps_message">In order to find your polling station, we need to know your location.</string>
     <string name="no_college_found">No polling station was found with the provided data</string>
@@ -40,12 +45,27 @@
     <string name="data_districte">District: %s</string>
     <string name="data_seccio">Section: %s</string>
     <string name="data_mesa">Station: %s</string>
+    <string name="data_add_to_calendar">Add to calendar</string>
 
     <!-- Share screen -->
     <string name="image_share_title">Share image</string>
     <string name="image_share_error">Unable to share image. Please try again.</string>
     <string name="share_subject">1-O Referendum</string>
     <string name="share_select">Share via…</string>
+
+    <!-- Results screen -->
+    <string name="graph_title">Results of the referendum on the independence of Catalonia</string>
+    <string name="graph_yes">Yes</string>
+    <string name="graph_no">No</string>
+    <string name="graph_blank">Blank</string>
+    <string name="graph_invalid">Invalid</string>
+    <string name="graph_counted">Counted</string>
+    <string name="graph_participation">Participation</string>
+    <string name="graph_empty">Results not yet available.</string>
+
+    <!-- Rating dialog -->
+    <string name="rating_title">Rate this app</string>
+    <string name="rating_description">To avoid the censorship by some sectors that are trying to force the removal of this app, we encourage you to rate the app with five stars, if you think it deserves them.</string>
 
     <!-- Notifications -->
     <string name="notification_title">Referendum</string>
@@ -57,6 +77,7 @@
     <string name="menu_web">Official site</string>
     <string name="menu_vote">Get involved</string>
     <string name="menu_share_tab">Share</string>
+    <string name="menu_results">Results</string>
     <string name="menu_share_app">Share app</string>
     <string name="menu_language">Change app language</string>
     <string name="menu_share">Share</string>

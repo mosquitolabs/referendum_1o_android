@@ -4,9 +4,11 @@
     <string name="button_ok">D'acord</string>
     <string name="button_cancel">Cancel·la</string>
     <string name="button_options">Opcions</string>
+    <string name="button_not_now">Ara no</string>
+    <string name="button_rate">Puntua</string>
 
     <!-- Common errors -->
-    <string name="load_error">No s'ha pogut carregar. Revisa la connexió a Internet i torna-ho a provar.</string>
+    <string name="load_error">No s'ha pogut carregar. És possible que el servidor hagi estat bloquejat, tingui un excés de peticions o que no tinguis connexió a Internet. Torna-ho a provar més tard.</string>
     <string name="retry_button">Torna-ho a provar</string>
 
     <!-- Main screen -->
@@ -14,6 +16,7 @@
     <string name="title_web">Web oficial</string>
     <string name="title_vote">Punt de votació</string>
     <string name="title_share">Difon i comparteix l'aplicació</string>
+    <string name="title_results">Resultats</string>
     <string name="change_language_title">Canvia l'idioma de l'aplicació</string>
 
     <!-- Info screen -->
@@ -29,6 +32,8 @@
     <string name="form_year">Any</string>
     <string name="form_zip_code">Codi postal</string>
     <string name="form_search">Cerca</string>
+    <string name="form_privacy_title">Política de privacitat</string>
+    <string name="form_privacy_description">Aquesta aplicació en cap cas desa la teva informació personal, les dades que pots introduir al formulari simplement s'utilitzen per cercar el teu punt de votació i es destrueixen un cop tanques l'aplicació. Per a qualsevol dubte, pots contactar amb nosaltres mitjançant el correu electrònic de la Play Store.</string>
     <string name="enable_gps_title">Activa el GPS</string>
     <string name="enable_gps_message">Per tal de trobar el teu punt de votació, necessitem saber la teva posició.</string>
     <string name="no_college_found">No s'ha trobat cap punt de votació vinculat a la informació introduïda</string>
@@ -40,12 +45,27 @@
     <string name="data_districte">Districte: %s</string>
     <string name="data_seccio">Secció: %s</string>
     <string name="data_mesa">Mesa: %s</string>
+    <string name="data_add_to_calendar">Afegeix al calendari</string>
 
     <!-- Share screen -->
     <string name="image_share_title">Comparteix la imatge</string>
     <string name="image_share_error">No s'ha pogut compartir la imatge. Torna-ho a provar.</string>
     <string name="share_subject">1-O Referèndum</string>
     <string name="share_select">Comparteix amb…</string>
+
+    <!-- Results screen -->
+    <string name="graph_title">Resultats del referèndum d'independència de Catalunya</string>
+    <string name="graph_yes">Sí</string>
+    <string name="graph_no">No</string>
+    <string name="graph_blank">Blanc</string>
+    <string name="graph_invalid">Nul</string>
+    <string name="graph_counted">Escrutat</string>
+    <string name="graph_participation">Participació</string>
+    <string name="graph_empty">Resultats no disponibles encara.</string>
+
+    <!-- Rating dialog -->
+    <string name="rating_title">Puntua l'aplicació</string>
+    <string name="rating_description">Per fer front als intents de censura per part d'alguns sectors que intenten forçar l'eliminació de l'aplicació, t'animem a puntuar-la amb cinc estrelles, si ho consideres oportú.</string>
 
     <!-- Notifications -->
     <string name="notification_title">Referèndum</string>
@@ -57,6 +77,7 @@
     <string name="menu_web">Web oficial</string>
     <string name="menu_vote">Participa</string>
     <string name="menu_share_tab">Difon</string>
+    <string name="menu_results">Resultats</string>
     <string name="menu_share_app">Comparteix l'aplicació</string>
     <string name="menu_language">Canvia l'idioma de l'aplicació</string>
     <string name="menu_share">Comparteix</string>

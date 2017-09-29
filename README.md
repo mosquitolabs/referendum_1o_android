@@ -8,6 +8,7 @@ Funcionalitats:
 * Accedeix a la web oficial del referèndum sense fer servir servidors intermediaris ni VPN.
 * Troba el teu col·legi electoral.
 * Comparteix un reguitzell de materials gràfics (cartells, díptics...) a favor del dret a decidir.
+* Comprova els resultats del referèndum un cop comenci l'escrutini.
 * Mantén-te informat de qualsevol novetat a través de les notificacions de l'aplicació.
 
 Aquesta aplicació és de codi obert per tal que tothom pugui replicar-la.
@@ -26,6 +27,7 @@ Per a compilar l'aplicació, us caldrà el següent:
 * Afegir els següents fitxers a Firebase Storage:
   * `hashtags.json`
   * `imatges.json`
+  * `results.json`
 * Canviar les regles a Firebase Storage:
     ```
     service firebase.storage {

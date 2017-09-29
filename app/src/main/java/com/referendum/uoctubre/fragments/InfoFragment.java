@@ -57,9 +57,6 @@ public class InfoFragment extends BaseFragment {
     View normalLayout;
     private List<String> remoteHashtags;
 
-    final int TWEETS_PER_PAGE = 50;
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -182,7 +179,7 @@ public class InfoFragment extends BaseFragment {
         final SearchTimeline searchTimeline = new SearchTimeline.Builder()
                 .query(hashtagsStringBuilder.toString())
                 .resultType(SearchTimeline.ResultType.RECENT)
-                .maxItemsPerRequest(TWEETS_PER_PAGE)
+                .maxItemsPerRequest(Constants.TWEETS_PER_PAGE)
                 .build();
 
         final TweetTimelineRecyclerViewAdapter adapter =

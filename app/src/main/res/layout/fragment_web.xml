@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <im.delight.android.webview.AdvancedWebView
         android:id="@+id/webview"
@@ -33,17 +33,17 @@
         android:visibility="gone">
 
         <com.referendum.uoctubre.components.LocalStringTextView
-            app:string_id="load_error"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:gravity="center"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            app:string_id="load_error" />
 
         <com.referendum.uoctubre.components.LocalStringButton
             android:id="@+id/error_retry_button"
-            app:string_id="retry_button"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            app:string_id="retry_button" />
     </LinearLayout>
 </FrameLayout>

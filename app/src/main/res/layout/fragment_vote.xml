@@ -75,8 +75,8 @@
                     android:id="@+id/etMonth"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:maxLength="2"
                     android:inputType="number"
+                    android:maxLength="2"
                     app:hint_string_id="form_month" />
 
             </android.support.design.widget.TextInputLayout>
@@ -90,8 +90,8 @@
                     android:id="@+id/etYear"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:maxLength="4"
                     android:inputType="number"
+                    android:maxLength="4"
                     app:hint_string_id="form_year" />
 
             </android.support.design.widget.TextInputLayout>
@@ -109,8 +109,8 @@
                 android:id="@+id/etPostalCode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:maxLength="5"
                 android:inputType="number"
+                android:maxLength="5"
                 app:hint_string_id="form_zip_code" />
 
         </android.support.design.widget.TextInputLayout>
@@ -126,6 +126,19 @@
             android:textSize="18sp"
             app:string_id="form_search" />
 
+        <com.referendum.uoctubre.components.LocalStringTextView
+            android:id="@+id/btnPrivacyPolicy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:background="?selectableItemBackground"
+            android:gravity="center"
+            android:padding="@dimen/default_padding"
+            android:textColor="@color/red"
+            android:textSize="14sp"
+            app:string_id="form_privacy_title" />
+
 
     </LinearLayout>
 
@@ -138,7 +151,9 @@
         <ProgressBar
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center" />
+            android:layout_gravity="center"
+            android:foregroundTintMode="src_in"
+            android:indeterminateTint="@color/colorPrimary" />
     </FrameLayout>
 
     <LinearLayout

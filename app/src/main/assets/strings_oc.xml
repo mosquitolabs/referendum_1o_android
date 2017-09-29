@@ -4,9 +4,11 @@
     <string name="button_ok">D'acòrd</string>
     <string name="button_cancel">Anullar</string>
     <string name="button_options">Opcions</string>
+    <string name="button_not_now">Ara non</string>
+    <string name="button_rate">Avalora</string>
 
     <!-- Common errors -->
-    <string name="load_error">Non s'a pogut carregar. Verifica era connexion a Internet e torna a sajar-ac.</string>
+    <string name="load_error">Non s'a pogut cargar. Ei possible qu'eth servidor age estat bloquejat, age un excès de peticions o que non ages connexion a Internet. Torna-ac a provar mès tard.</string>
     <string name="retry_button">Torna a sajar-ac</string>
 
     <!-- Main screen -->
@@ -14,6 +16,7 @@
     <string name="title_web">Plana oficiau</string>
     <string name="title_vote">Punts de votacion</string>
     <string name="title_share">Difon e partaja era aplicacion</string>
+    <string name="title_results">Resultats</string>
     <string name="change_language_title">Càmbia era lengua dera aplicacion</string>
 
     <!-- Info screen -->
@@ -29,6 +32,8 @@
     <string name="form_year">An</string>
     <string name="form_zip_code">Còdi postau</string>
     <string name="form_search">Cerca</string>
+    <string name="form_privacy_title">Politica de privadança</string>
+    <string name="form_privacy_description">Aguesta aplicacion non plegue era tua informacion personau en cap de cas, es donades que pòdes introdusir en formulari s'utilizen simplaments entà cercar eth tòn punt de votacion e se destruïssen quand barres era aplicacion. S'as cap de dobte, pòdes contactar damb nosati mejançant eth corrèu electronic dera Play Store.</string>
     <string name="enable_gps_title">Activa eth GPS</string>
     <string name="enable_gps_message">Entà trapar eth tòn punt de votacion, qu'auem de besonh era tua posicion.</string>
     <string name="no_college_found">Non s'a trapat cap de punt de votacion vinculat ara informacion introdusida</string>
@@ -40,12 +45,27 @@
     <string name="data_districte">Districte: %s</string>
     <string name="data_seccio">Seccion: %s</string>
     <string name="data_mesa">Mèsa: %s</string>
+    <string name="data_add_to_calendar">Hig ath calendari</string>
 
     <!-- Share screen -->
     <string name="image_share_title">Partaja era imatge</string>
     <string name="image_share_error">Non s'a pogut partajar era imatge. Torna a sajar-ac.</string>
     <string name="share_subject">1-O Referendum</string>
     <string name="share_select">Partaja damb…</string>
+
+    <!-- Results screen -->
+    <string name="graph_title">Resultats deth referendum d'independéncia de Catalonha</string>
+    <string name="graph_yes">Òc</string>
+    <string name="graph_no">Non</string>
+    <string name="graph_blank">Blanc</string>
+    <string name="graph_invalid">Nul</string>
+    <string name="graph_counted">Escrutat</string>
+    <string name="graph_participation">Participacion</string>
+    <string name="graph_empty">Resultats non disponibles encara.</string>
+
+    <!-- Rating dialog -->
+    <string name="rating_title">Avalora era aplicacion</string>
+    <string name="rating_description">Entà empeishar era censura de bèri sectors que vòlen esfaçar era aplicacion, t'encoratjam d'avalorar-la damb cinc esteles, s'ac trapes oportun.</string>
 
     <!-- Notifications -->
     <string name="notification_title">Referendum</string>
@@ -57,8 +77,9 @@
     <string name="menu_web">Plana oficiau</string>
     <string name="menu_vote">Participa</string>
     <string name="menu_share_tab">Difon</string>
+    <string name="menu_results">Resultats</string>
     <string name="menu_share_app">Partaja era aplicacion</string>
-    <string name="menu_language">Càmbia er idioma dera aplicacion</string>
+    <string name="menu_language">Càmbia era lengua dera aplicacion</string>
     <string name="menu_share">Partaja</string>
 
 </resources>
