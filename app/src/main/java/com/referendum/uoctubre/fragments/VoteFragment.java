@@ -30,24 +30,38 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.androidmapsextensions.ClusteringSettings;
+import com.androidmapsextensions.GoogleMap;
+import com.androidmapsextensions.Marker;
+import com.androidmapsextensions.MarkerOptions;
+import com.androidmapsextensions.OnMapReadyCallback;
+import com.androidmapsextensions.SupportMapFragment;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.referendum.uoctubre.R;
 import com.referendum.uoctubre.UOctubreApplication;
 import com.referendum.uoctubre.components.LocalStringButton;
+import com.referendum.uoctubre.main.Constants;
 import com.referendum.uoctubre.model.ColegiElectoral;
 import com.referendum.uoctubre.model.PollingStationResponse;
+import com.referendum.uoctubre.utils.MapClusterOptionsProvider;
 import com.referendum.uoctubre.utils.PollingStationDataFetcher;
 import com.referendum.uoctubre.utils.StringsManager;
 
+import java.lang.reflect.Type;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
@@ -122,6 +136,23 @@ public class VoteFragment extends BaseFragment implements OnMapReadyCallback, Go
                 searchPollingStation();
             }
         });
+        LocalStringButton btnShowAll = view.findViewById(R.id.btnShowAll);
+        btnShowAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                InputMethodManager imm = (InputMethodManager) view.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                if (imm != null) {
+                    imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+                }
+                if (mGoogleMap != null) {
+                    formLayout.setVisibility(View.GONE);
+                    mapLayout.setVisibility(View.VISIBLE);
+                    mGoogleMap.clear();
+                    loadPollingStations(null);
+                    startLocation();
+                }
+            }
+        });
         TextView btnPrivacyPolicy = view.findViewById(R.id.btnPrivacyPolicy);
         btnPrivacyPolicy.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,7 +167,7 @@ public class VoteFragment extends BaseFragment implements OnMapReadyCallback, Go
 
         bsb = BottomSheetBehavior.from(bottomSheet);
 
-        mMapFragment.getMapAsync(this);
+        mMapFragment.getExtendedMapAsync(this);
         return view;
     }
 
@@ -185,6 +216,14 @@ public class VoteFragment extends BaseFragment implements OnMapReadyCallback, Go
                 showGpsDialog();
             } else {
                 mGoogleMap.setMyLocationEnabled(true);
+
+                //Move Camera to myLocation
+                CameraPosition cameraPosition = new CameraPosition.Builder()
+                        .target(new LatLng(mLocation.getLatitude(), mLocation.getLongitude()))
+                        .zoom(13)
+                        .build();
+
+                mGoogleMap.moveCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
             }
         }
     }
@@ -211,6 +250,44 @@ public class VoteFragment extends BaseFragment implements OnMapReadyCallback, Go
     private void startMap(final GoogleMap googleMap) {
         LatLng latLng = new LatLng(41.736054, 1.707176);
         googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 7.5f));
+
+        googleMap.setClustering(new ClusteringSettings().clusterOptionsProvider(new MapClusterOptionsProvider(getResources())).clusterSize(
+                128).addMarkersDynamically(true));
+
+        googleMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+
+            @Override
+            public boolean onMarkerClick(Marker marker) {
+                if (isAdded() && marker != null) { //Should not be null, but in some rare unlikely case it appears to be
+                    if (marker.isCluster()) {
+                        List<Marker> markers = marker.getMarkers();
+                        LatLngBounds.Builder builder = LatLngBounds.builder();
+                        for (Marker m : markers) {
+                            builder.include(m.getPosition());
+                        }
+                        LatLngBounds bounds = builder.build();
+                        googleMap.animateCamera(
+                                CameraUpdateFactory.newLatLngBounds(bounds, getResources().getDimensionPixelSize(R.dimen.map_cluster_padding)));
+                        return true;
+                    } else {
+                        showColegiElectoralData((ColegiElectoral) marker.getData());
+                    }
+                }
+                return false;
+            }
+        });
+
+        loadPollingStations(null);
+    }
+
+    public void addMarkers(List<ColegiElectoral> colegiElectorals) {
+        if (mGoogleMap != null && colegiElectorals != null) {
+            mGoogleMap.clear();
+            for (ColegiElectoral colegiElectoral : colegiElectorals) {
+                mGoogleMap.addMarker(new MarkerOptions().position(new LatLng(colegiElectoral.getLat(), colegiElectoral.getLon()))
+                        .data(colegiElectoral).clusterGroup(1).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+            }
+        }
     }
 
     public void onConnected(@Nullable Bundle bundle) {
@@ -246,15 +323,15 @@ public class VoteFragment extends BaseFragment implements OnMapReadyCallback, Go
 
     public void showColegiElectoralData(final ColegiElectoral colegiElectoral) {
         LatLng latLng = new LatLng(colegiElectoral.getLat(), colegiElectoral.getLon());
-        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 14);
+        CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(latLng, 16);
         mGoogleMap.animateCamera(cameraUpdate);
 
         txtNomLocal.setText(colegiElectoral.getLocal());
         txtAdresa.setText(colegiElectoral.getAdresa());
         txtLocalitat.setText(colegiElectoral.getMunicipi());
-        txtDistricte.setText(StringsManager.getString("data_districte", colegiElectoral.getDistricte()));
-        txtSeccio.setText(StringsManager.getString("data_seccio", colegiElectoral.getSeccio()));
-        txtMesa.setText(StringsManager.getString("data_mesa", colegiElectoral.getMesa()));
+        txtDistricte.setText(colegiElectoral.getDistricte() != null ? StringsManager.getString("data_districte", colegiElectoral.getDistricte()) : "");
+        txtSeccio.setText(colegiElectoral.getSeccio() != null ? StringsManager.getString("data_seccio", colegiElectoral.getSeccio()) : "");
+        txtMesa.setText(colegiElectoral.getMesa() != null ? StringsManager.getString("data_mesa", colegiElectoral.getMesa()) : "");
 
         icnCalendari.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -372,16 +449,48 @@ public class VoteFragment extends BaseFragment implements OnMapReadyCallback, Go
                         mapLayout.setVisibility(View.VISIBLE);
                         if (mGoogleMap != null) {
                             mGoogleMap.clear();
-                            if (pollingStationResponse.getPollingStation().getLat() != 0 && pollingStationResponse.getPollingStation().getLon() != 0) {
-                                mGoogleMap.addMarker(new MarkerOptions().position(new LatLng(pollingStationResponse.getPollingStation().getLat(), pollingStationResponse.getPollingStation().getLon())));
-                            }
+                            loadPollingStations(pollingStationResponse.getPollingStation());
                             startLocation();
-                            showColegiElectoralData(pollingStationResponse.getPollingStation());
                         }
                     }
                 }
             }
         }.execute();
+    }
+
+    private void loadPollingStations(final ColegiElectoral userPollingStation) {
+        String colegis = ("pollingplaces.json");
+
+        StorageReference storageRef = FirebaseStorage.getInstance().getReference().child(colegis);
+        storageRef.getBytes(Constants.MAX_FIREBASE_DOWNLOAD_SIZE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+            @Override
+            public void onSuccess(byte[] bytes) {
+                Gson gson = new Gson();
+                Type listType = new TypeToken<List<ColegiElectoral>>() {
+                }.getType();
+                List<ColegiElectoral> colegisElectorals = gson.fromJson(new String(bytes), listType);
+                if (colegisElectorals != null) {
+                    addMarkers(colegisElectorals);
+                } else {
+                    Toast.makeText(getContext(), StringsManager.getString("map_could_not_load_polling_stations"), Toast.LENGTH_SHORT).show();
+                }
+
+                if (userPollingStation != null) {
+                    if (userPollingStation.getLat() != 0 && userPollingStation.getLon() != 0) {
+                        mGoogleMap.addMarker(new MarkerOptions().position(new LatLng(userPollingStation.getLat(),
+                                userPollingStation.getLon())).data(userPollingStation).clusterGroup(0).zIndex(100)
+                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_AZURE)));
+                    }
+                    showColegiElectoralData(userPollingStation);
+                }
+
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                Toast.makeText(getActivity(), StringsManager.getString("load_error"), Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     private int convertToInt(String string) {

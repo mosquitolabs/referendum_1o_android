@@ -25,6 +25,7 @@ Per a compilar l'aplicació, us caldrà el següent:
 * Canviar l'API key de Google Maps i Fabric a l'`AndroidManifest.xml`.
 * Crear una aplicació de Twitter i copiar-ne les claus a `Constants.java`.
 * Afegir els següents fitxers a Firebase Storage:
+  * `pollingplaces.json`
   * `hashtags.json`
   * `imatges.json`
   * `results.json`

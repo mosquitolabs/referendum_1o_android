@@ -32,11 +32,13 @@
     <string name="form_year">Year</string>
     <string name="form_zip_code">Zip code</string>
     <string name="form_search">Search</string>
+    <string name="form_show_all">Show all polling stations</string>
     <string name="form_privacy_title">Privacy policy</string>
     <string name="form_privacy_description">This app does not store your personal information under any circumstance, the data you enter in the form is only used to search for your polling place and is destroyed once you close the app. If you have any doubt, you can contact us via the e-mail address on the Play Store.</string>
     <string name="enable_gps_title">Enable GPS</string>
     <string name="enable_gps_message">In order to find your polling station, we need to know your location.</string>
     <string name="no_college_found">No polling station was found with the provided data</string>
+    <string name="could_not_load_polling_stations">Could not load polling stations, please try again.</string>
     <string name="form_error_enter_all_fields">All fields are mandatory to be able to run a search</string>
     <string name="form_error_day">Day must be between 1 and 31</string>
     <string name="form_error_month">Month must be between 1 and 12</string>

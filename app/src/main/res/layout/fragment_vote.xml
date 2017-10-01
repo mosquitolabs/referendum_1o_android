@@ -5,142 +5,164 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
+    <ScrollView
         android:id="@+id/form_layout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="@dimen/double_padding">
-
-        <com.referendum.uoctubre.components.LocalStringTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/double_padding"
-            android:gravity="center"
-            android:textSize="18sp"
-            app:string_id="form_info" />
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/double_padding">
-
-            <com.referendum.uoctubre.components.LocalStringTextInputEditText
-                android:id="@+id/etId"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:hint_string_id="form_nif" />
-
-        </android.support.design.widget.TextInputLayout>
-
-        <com.referendum.uoctubre.components.LocalStringTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="4dp"
-            android:layout_marginStart="4dp"
-            android:textSize="16sp"
-            app:string_id="form_date_of_birth" />
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/double_padding"
-            android:baselineAligned="false"
-            android:orientation="horizontal"
-            android:weightSum="3">
+            android:orientation="vertical"
+            android:padding="@dimen/double_padding">
+
+            <com.referendum.uoctubre.components.LocalStringTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/double_padding"
+                android:gravity="center"
+                android:textSize="18sp"
+                app:string_id="form_info" />
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1.0">
+                android:layout_marginBottom="@dimen/double_padding">
 
                 <com.referendum.uoctubre.components.LocalStringTextInputEditText
-                    android:id="@+id/etDay"
+                    android:id="@+id/etId"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:maxLength="2"
-                    app:hint_string_id="form_day" />
+                    app:hint_string_id="form_nif" />
 
             </android.support.design.widget.TextInputLayout>
+
+            <com.referendum.uoctubre.components.LocalStringTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="4dp"
+                android:textSize="16sp"
+                app:string_id="form_date_of_birth" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/double_padding"
+                android:baselineAligned="false"
+                android:orientation="horizontal"
+                android:weightSum="3">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0">
+
+                    <com.referendum.uoctubre.components.LocalStringTextInputEditText
+                        android:id="@+id/etDay"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:maxLength="2"
+                        app:hint_string_id="form_day" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/default_padding"
+                    android:layout_marginRight="@dimen/default_padding"
+                    android:layout_weight="1.0">
+
+                    <com.referendum.uoctubre.components.LocalStringTextInputEditText
+                        android:id="@+id/etMonth"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:maxLength="2"
+                        app:hint_string_id="form_month" />
+
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0">
+
+                    <com.referendum.uoctubre.components.LocalStringTextInputEditText
+                        android:id="@+id/etYear"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:maxLength="4"
+                        app:hint_string_id="form_year" />
+
+                </android.support.design.widget.TextInputLayout>
+
+
+            </LinearLayout>
+
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="@dimen/default_padding"
-                android:layout_marginRight="@dimen/default_padding"
-                android:layout_weight="1.0">
+                android:layout_marginBottom="@dimen/double_padding">
 
                 <com.referendum.uoctubre.components.LocalStringTextInputEditText
-                    android:id="@+id/etMonth"
+                    android:id="@+id/etPostalCode"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
-                    android:maxLength="2"
-                    app:hint_string_id="form_month" />
+                    android:maxLength="5"
+                    app:hint_string_id="form_zip_code" />
 
             </android.support.design.widget.TextInputLayout>
 
-            <android.support.design.widget.TextInputLayout
+            <com.referendum.uoctubre.components.LocalStringButton
+                android:id="@+id/btnSearch"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1.0">
+                android:background="@color/red"
+                android:gravity="center"
+                android:padding="@dimen/default_padding"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:string_id="form_search" />
 
-                <com.referendum.uoctubre.components.LocalStringTextInputEditText
-                    android:id="@+id/etYear"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:maxLength="4"
-                    app:hint_string_id="form_year" />
+            <com.referendum.uoctubre.components.LocalStringTextView
+                android:id="@+id/btnPrivacyPolicy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:background="?selectableItemBackground"
+                android:gravity="center"
+                android:padding="@dimen/default_padding"
+                android:textColor="@color/red"
+                android:textSize="14sp"
+                app:string_id="form_privacy_title" />
 
-            </android.support.design.widget.TextInputLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@color/grey_dark" />
 
+            <com.referendum.uoctubre.components.LocalStringButton
+                android:id="@+id/btnShowAll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/grey_dark"
+                android:gravity="center"
+                android:padding="@dimen/default_padding"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:string_id="form_show_all" />
 
         </LinearLayout>
-
-
-        <android.support.design.widget.TextInputLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/double_padding">
-
-            <com.referendum.uoctubre.components.LocalStringTextInputEditText
-                android:id="@+id/etPostalCode"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:maxLength="5"
-                app:hint_string_id="form_zip_code" />
-
-        </android.support.design.widget.TextInputLayout>
-
-        <com.referendum.uoctubre.components.LocalStringButton
-            android:id="@+id/btnSearch"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/red"
-            android:gravity="center"
-            android:padding="@dimen/default_padding"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            app:string_id="form_search" />
-
-        <com.referendum.uoctubre.components.LocalStringTextView
-            android:id="@+id/btnPrivacyPolicy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="8dp"
-            android:background="?selectableItemBackground"
-            android:gravity="center"
-            android:padding="@dimen/default_padding"
-            android:textColor="@color/red"
-            android:textSize="14sp"
-            app:string_id="form_privacy_title" />
-
-
-    </LinearLayout>
+    </ScrollView>
 
     <FrameLayout
         android:id="@+id/loading_layout"
@@ -198,7 +220,7 @@
 
             <fragment
                 android:id="@+id/map_fragment"
-                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:name="com.androidmapsextensions.SupportMapFragment"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
 

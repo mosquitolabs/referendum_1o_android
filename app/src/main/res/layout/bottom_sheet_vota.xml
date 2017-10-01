@@ -51,6 +51,7 @@
                 style="@style/Body"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textAllCaps="true"
                 android:textColor="@color/grey_dark"
                 tools:text="Tarragona" />
         </LinearLayout>

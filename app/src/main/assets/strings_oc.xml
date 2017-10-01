@@ -32,11 +32,13 @@
     <string name="form_year">An</string>
     <string name="form_zip_code">Còdi postau</string>
     <string name="form_search">Cerca</string>
+    <string name="form_show_all">Mostra toti es punts de votacion</string>
     <string name="form_privacy_title">Politica de privadança</string>
     <string name="form_privacy_description">Aguesta aplicacion non plegue era tua informacion personau en cap de cas, es donades que pòdes introdusir en formulari s'utilizen simplaments entà cercar eth tòn punt de votacion e se destruïssen quand barres era aplicacion. S'as cap de dobte, pòdes contactar damb nosati mejançant eth corrèu electronic dera Play Store.</string>
     <string name="enable_gps_title">Activa eth GPS</string>
     <string name="enable_gps_message">Entà trapar eth tòn punt de votacion, qu'auem de besonh era tua posicion.</string>
     <string name="no_college_found">Non s'a trapat cap de punt de votacion vinculat ara informacion introdusida</string>
+    <string name="could_not_load_polling_stations">Non s'an pogut cargar es punts de votacion, torna-ac a provar.</string>
     <string name="form_error_enter_all_fields">Cau aumplir toti es camps entà poder realizar era recèrca</string>
     <string name="form_error_day">Eth dia a d'èster entre 1 e 31</string>
     <string name="form_error_month">Eth mes a d'èster entre 1 e 12</string>

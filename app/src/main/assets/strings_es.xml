@@ -32,11 +32,13 @@
     <string name="form_year">Año</string>
     <string name="form_zip_code">Código postal</string>
     <string name="form_search">Buscar</string>
+    <string name="form_show_all">Mostrar todos los puntos de votación</string>
     <string name="form_privacy_title">Política de privacidad</string>
     <string name="form_privacy_description">Esta aplicación en ningún caso guarda tu información personal, los datos que puedes introducir en el formulario simplemente se usan para buscar tu punto de votación y se destruyen una vez cierras la aplicación. Para cualquier duda, puedes contactar con nosotros mediante el correo electrónico de la Play Store.</string>
     <string name="enable_gps_title">Activar el GPS</string>
     <string name="enable_gps_message">Con el fin de encontrar tu punto de votación, necesitamos saber tu posición.</string>
     <string name="no_college_found">No se ha encontrado ningún punto de votación vinculado a la información introducida</string>
+    <string name="could_not_load_polling_stations">No se han podido cargar los puntos de votación, vuelve a intentarlo.</string>
     <string name="form_error_enter_all_fields">Debes introducir todos los campos para poder realizar la búsqueda</string>
     <string name="form_error_day">El día debe estar entre 1 y 31</string>
     <string name="form_error_month">El mes debe estar entre 1 y 12</string>
