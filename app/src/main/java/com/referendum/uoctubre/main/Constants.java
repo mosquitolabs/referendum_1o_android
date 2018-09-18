@@ -7,7 +7,7 @@ public class Constants {
     public static final String FIREBASE_CONFIG_SHARE_APP_MESSAGEREQUIRED = "share_app_message";
     public static final String FIREBASE_CONFIG_WEB_URL = "web_url";
     public static final String FIREBASE_CONFIG_API_URL = "api_url";
-    public static final String PRIVACY_POLICY_URL = "https://raw.githubusercontent.com/mosquitolabs/referendum_1o_android/master/privacy_policy.html";
+    public static final String PRIVACY_POLICY_URL = "https://htmlpreview.github.io/?https://github.com/mosquitolabs/referendum_1o_android/blob/master/privacy_policy.html";
 
     public static final String TWITTER_CONSUMER_KEY = "XXXXXX";
     public static final String TWITTER_CONSUMER_SECRET = "XXXXXX";
