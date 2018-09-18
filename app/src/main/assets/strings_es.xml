@@ -77,6 +77,7 @@
     <!-- Menus -->
     <string name="menu_info">Infórmate</string>
     <string name="menu_web">Web oficial</string>
+    <string name="menu_privacy_policy">Política de privacidad</string>
     <string name="menu_vote">Participa</string>
     <string name="menu_share_tab">Difunde</string>
     <string name="menu_results">Resultados</string>

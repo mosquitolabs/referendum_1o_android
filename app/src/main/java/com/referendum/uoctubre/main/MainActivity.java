@@ -197,15 +197,20 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
                 case R.id.action_language:
                     menuItem.setTitle(StringsManager.getString("menu_language"));
                     break;
+                case R.id.action_privacy_policy:
+                    menuItem.setTitle(StringsManager.getString("menu_privacy_policy"));
+                    break;
             }
         }
 
         if (mFragment instanceof ShareFragment) {
             menu.findItem(R.id.action_share).setVisible(true);
             menu.findItem(R.id.action_language).setVisible(false);
+            menu.findItem(R.id.action_privacy_policy).setVisible(false);
         } else {
             menu.findItem(R.id.action_share).setVisible(false);
             menu.findItem(R.id.action_language).setVisible(true);
+            menu.findItem(R.id.action_privacy_policy).setVisible(true);
         }
         return super.onCreateOptionsMenu(menu);
     }
@@ -260,6 +265,11 @@ public class MainActivity extends BaseActivity implements BottomNavigationView.O
                     }
                 });
                 builder.show();
+                return true;
+            case R.id.action_privacy_policy:
+                Intent viewIntent = new Intent(android.content.Intent.ACTION_VIEW);
+                viewIntent.setData(Uri.parse(Constants.PRIVACY_POLICY_URL));
+                startActivity(viewIntent);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

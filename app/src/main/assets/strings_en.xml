@@ -77,6 +77,7 @@
     <!-- Menus -->
     <string name="menu_info">Find out</string>
     <string name="menu_web">Official site</string>
+    <string name="menu_privacy_policy">Privacy policy</string>
     <string name="menu_vote">Get involved</string>
     <string name="menu_share_tab">Share</string>
     <string name="menu_results">Results</string>

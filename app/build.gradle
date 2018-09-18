@@ -9,8 +9,8 @@ android {
         applicationId "com.referendum.uoctubre"
         minSdkVersion 17
         targetSdkVersion 26
-        versionCode 12
-        versionName "1.5.0"
+        versionCode 13
+        versionName "1.6.0"
         vectorDrawables.useSupportLibrary = true
     }
 
